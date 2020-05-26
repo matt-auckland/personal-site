@@ -1,0 +1,23 @@
+---
+layout: base-layout
+---
+
+{{content | safe}}
+
+<div class="project-cont">
+  {%- for project in projectData -%}
+    <a href={{project.url}} target="_blank">
+    <div class="project">
+      <img class="project__img" src={{project.image}}>
+      <div class="project__text">
+        <div class="project__name">
+          {{project.name}}
+        </div>
+        <div class="project__desc">
+          {{project.description}}
+        </div>
+      </div>
+    </div>
+    </a>
+  {%- endfor -%}
+</div>

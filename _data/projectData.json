@@ -1,0 +1,14 @@
+[
+  {
+    "name": "UoA Karate",
+    "description": "A Vue based website for the University of Auckland Karate club.",
+    "url": "https://uoa-karate.club",
+    "image": "../assets/images/uoa-karate.jpg"
+  },
+  {
+    "name": "Kata Counter",
+    "description": "Cordova App for recording kata repetitions and goals. It will display how many reps you need to do per week/day to meet your goal.",
+    "url": "https://github.com/matt-auckland/kata-counter",
+    "image": "../assets/images/kata-counter.jpg"
+  }
+]

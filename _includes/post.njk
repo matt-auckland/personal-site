@@ -1,0 +1,15 @@
+---
+layout: base-layout
+date: Last Modified
+---
+
+<h1 class="post-title">{{ title }}</h1>
+<div class="post-date">Last updated: {{page.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</div>
+<div class="post-tags">
+  Tags:
+  <a href="/">Karate</a>,
+  <a href="/">Bunkai</a>,
+  <a href="/">Goju-Ryu</a>,
+  <a href="/">MMA</a>
+</div>
+<div class="post-content">{{ content | safe}}</div>
