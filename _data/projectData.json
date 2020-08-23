@@ -3,12 +3,30 @@
     "name": "UoA Karate",
     "description": "A Vue based website for the University of Auckland Karate club.",
     "url": "https://uoa-karate.club",
-    "image": "../assets/images/uoa-karate.jpg"
+    "tags": ["Vue"]
+  },
+  {
+    "name": "UoA Karate Wiki",
+    "description": "A Vuepress based wiki for the University of Auckland Karate club.",
+    "url": "https://uoa-karate.club",
+    "tags": ["Vue", "Vuepress"]
   },
   {
     "name": "Kata Counter",
-    "description": "Cordova App for recording kata repetitions and goals. It will display how many reps you need to do per week/day to meet your goal.",
+    "description": "Android app for recording kata reps and goals. It displays how many reps to do weekly to meet your goal.",
     "url": "https://github.com/matt-auckland/kata-counter",
-    "image": "../assets/images/kata-counter.jpg"
+    "tags": ["Vue", "Cordova"]
+  },
+  {
+    "name": "Hex-Words",
+    "description": "Spice up your web design with colours that are WORDS! A site that lets you find hexcodes that look like English words.",
+    "url": "https://github.com/matt-auckland/hex-words",
+    "tags": ["Svelte"]
+  },
+  {
+    "name": "This Site",
+    "description": "Nothing fancy here, just static site built with Eleventy.",
+    "url": "https://github.com/matt-auckland/my-site",
+    "tags": ["Eleventy"]
   }
 ]

@@ -1,0 +1,18 @@
+<header class="blog-header">
+  <h1 class="blog-name">
+    <a href="/">
+      {{global.blogTitle}}
+    </a>
+  </h1>
+  <nav class="links">
+    <a href="/" style={{ 'font-weight:bold;' if page.url == '/' }}>
+      /home
+    </a>
+    <a href="/posts" style={{ 'font-weight:bold;' if page.url.startsWith('/posts/') }}>
+      /posts
+    </a>
+    <a href="/projects" style={{ 'font-weight:bold;' if page.url.startsWith('/projects/') }}>
+      /projects
+    </a>
+  </nav>
+</header>

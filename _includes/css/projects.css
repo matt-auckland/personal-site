@@ -1,0 +1,101 @@
+.project-cont {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.project {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid black;
+  border-radius: 4px;
+  flex: 1 0 220px;
+  padding: 8px;
+
+  margin: 10px;
+}
+
+.project:hover {
+  border-bottom: black solid 1px;
+}
+
+@supports (gap: 20px) {
+  .project-cont {
+    gap: 20px;
+  }
+
+  .project {
+    margin: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .project {
+    flex: 1 0 150px;
+  }
+}
+
+.project__text {
+}
+
+.project__name {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.project__desc {
+  font-size: 1rem;
+}
+
+.tags {
+  display: flex;
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+.tag {
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-right: 5px;
+}
+
+.tag.vue,
+.tag.vuepress {
+  background-color: #41b883;
+  color: #fff;
+}
+
+.tag.svelte {
+  background-color: #ff3e00;
+  color: #fff;
+}
+
+.tag.cordova {
+  background-color: #4cc2e4;
+  color: #000;
+}
+
+.tag.react {
+  background-color: #61dafb;
+  color: #000;
+}
+
+.tag.angular {
+  background-color: #dd0031;
+  color: #fff;
+}
+
+.tag.angularjs {
+  background-color: #d63137;
+  color: #fff;
+}
+
+.tag.eleventy {
+  background-color: #628c9d;
+  color: #fff;
+}

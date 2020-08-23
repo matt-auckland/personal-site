@@ -1,6 +1,11 @@
 ---
 layout: base-layout.njk
-title: Test
 ---
 
-# Home
+# Mathew Paul
+
+I'm a Software Engineer based out of {% extLink 'https://en.wikipedia.org/wiki/New_Zealand' 'Aotearoa' %}. I'm an experienced Javascript developer, and I've worked with Vue, Cordova, Angular and NodeJS.
+
+## About this site
+
+I needed something simple to show my personal projects on and somewhere to post blog posts so here we are. This site is built with {% extLink 'https://www.11ty.dev/' 'Eleventy' %}, mostly using {% extLink 'https://mozilla.github.io/nunjucks/' 'Nunjucks templates' %} and Markdown.

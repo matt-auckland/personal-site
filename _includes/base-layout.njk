@@ -1,51 +1,28 @@
----
-title: Kata.exec() 
----
-
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="main.css"/>
     {%- set css -%}
     {% include "css/main.css" %}
     {% include "css/style.css" %}
+    {% include "css/projects.css" %}
     {%- endset %}
+    <title>{{title}}</title>
     <style>
       {{css  | safe}}
     </style>
   </head>
 
   <body>
-    <header>
-      <h1>Kata.exec()</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/" style={{ 'font-weight:bold;' if page.url == '/' }}>
-              /home
-            </a>
-          </li>
-          <li>
-            <a href="/posts" style={{ 'font-weight:bold;' if page.url.startsWith('/posts/') }}>
-              /posts
-            </a>
-          </li>
-          <li>
-            <a href="/projects" style={{ 'font-weight:bold;' if page.url.startsWith('/projects/') }}>
-              /projects
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    {% include "header.njk" %}
 
     <main>
       {{ content | safe }}
     </main>
+
+    {% include "footer.njk" %}
   </body>
 
 </html>
