@@ -4,7 +4,10 @@
     "Github" %}
     {% extLink global.twitter,
     "Twitter" %}
-    {% extLink global.martialBlog.url,
-    global.martialBlog.title %}
+
+    {% if global.martialBlog.url %}
+      {% extLink global.martialBlog.url,
+      global.martialBlog.title %}
+    {% endif %}
   </nav>
 </footer>
