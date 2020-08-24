@@ -4,7 +4,7 @@ layout: base-layout.njk
 
 # Mathew Paul
 
-I'm a Software Engineer based out of {% extLink 'https://en.wikipedia.org/wiki/New_Zealand' 'Aotearoa' %}. I'm an experienced Javascript developer, and I've worked with Vue, Cordova, Angular and NodeJS.
+I'm a Software Engineer based out of {% extLink 'https://en.wikipedia.org/wiki/New_Zealand' 'Aotearoa' %}. I'm experienced with Javascript, and I've worked with Vue, Cordova, Angular and NodeJS.
 
 ## About this site
 
