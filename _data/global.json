@@ -1,9 +1,10 @@
 {
-  "blogTitle": "Mat's blog",
+  "blogTitle": "Mat's Blog",
   "twitter": "https://twitter.com/mattatt4ck",
   "github": "https://github.com/matt-auckland",
   "martialBlog": {
     "url": null,
     "title": null
-  }
+  },
+  "description": "This is my personal blog and portfolio website. Expect writings on programming, books, and maybe the martial arts."
 }

@@ -1,6 +1,5 @@
 ---
 layout: base-layout.njk
-title: Mat's Blog
 ---
 
 # Mathew Paul
