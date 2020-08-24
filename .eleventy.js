@@ -9,7 +9,7 @@ module.exports = function (eleventyConfig) {
     // get unsorted items
     const posts = collectionApi
       .getAll()
-      .filter((i) => i.data.layout == "post.njk");
+      .filter((i) => i.data.layout == "pages/post.njk");
     return posts;
   });
 
