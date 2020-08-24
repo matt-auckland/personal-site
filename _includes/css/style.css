@@ -60,7 +60,7 @@ h3 {
 /* Links */
 
 a {
-  color: #0180ff;
+  color: #006ad3;
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
@@ -72,15 +72,15 @@ a:hover {
 
 a:hover,
 a:focus {
-  color: #0180ff;
-  border-bottom: 1px solid #0180ff;
+  color: #006ad3;
+  border-bottom: 1px solid #006ad3;
   filter: brightness(1.5);
 }
 
 a:active {
-  color: #0180ff;
+  color: #006ad3;
   opacity: 0.9;
-  border-bottom: 1px solid #0180ff;
+  border-bottom: 1px solid #006ad3;
   filter: brightness(1.7);
 }
 
@@ -197,21 +197,11 @@ article header h1 {
 article header h1 a {
   border: none;
   text-decoration: none;
-  color: #333;
 }
 
 .article-info {
   font-size: 0.75em;
-  color: grey;
   margin-top: 1em;
-}
-
-.article-info a {
-  color: grey;
-}
-
-.article-info a:hover {
-  color: #a31d1d;
 }
 
 .post-short-list .article-info {
@@ -296,16 +286,6 @@ article img {
 
 .disabled {
   visibility: hidden;
-}
-
-.pagination-item a {
-  color: #333333;
-}
-
-.pagination-item a:hover,
-.pagination-item a:focus {
-  color: #a31d1d;
-  border-bottom: 0;
 }
 
 /* Footer */
