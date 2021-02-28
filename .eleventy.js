@@ -1,6 +1,14 @@
 const fs = require("fs");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
+const embedEverything = require("eleventy-plugin-embed-everything");
 
 module.exports = function (eleventyConfig) {
+  //plugins
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(lazyImagesPlugin);
+  eleventyConfig.addPlugin(embedEverything);
+
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function (err, bs) {
@@ -31,12 +39,12 @@ module.exports = function (eleventyConfig) {
     return posts;
   });
 
-  // Copy `img/` to `_site/img`
-  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addWatchTarget("css/*");
+  eleventyConfig.addWatchTarget("js/*");
 
-  // Copy `css/fonts/` to `_site/css/fonts`
-  // If you use a subdirectory, it’ll copy using the same directory structure.
-  // eleventyConfig.addPassthroughCopy("css/fonts");
+  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("js");
 
   eleventyConfig.addShortcode(
     "extLink",

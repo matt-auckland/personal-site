@@ -13,7 +13,7 @@
   },
   {
     "name": "Kata Counter",
-    "description": "Android app for recording kata reps and goals. It displays how many reps to do weekly to meet your goal.",
+    "description": "Android app for tracking your karate kata practice and goals.",
     "url": "https://github.com/matt-auckland/kata-counter",
     "tags": ["Vue", "Cordova"]
   },

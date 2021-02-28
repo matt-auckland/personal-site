@@ -1,39 +1,8 @@
 ---
 title: 404 Not Found
 permalink: 404.html
+layout: base-layout
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{{ title }}</title>
-  </head>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    {%- set css -%}
-    {% include "css/main.css" %}
-    {% include "css/style.css" %}
-    {% include "css/projects.css" %}
-    {%- endset %}
-    <title>{{title}}</title>
-    <style>
-      {{css  | safe}}
-    </style>
-  </head>
-
-  <body>
-    {% include "header.njk" %}
-    <main>
-      <h1>{{ title }}</h1>
-      <p>Looks like you went somewhere unexected, sorry!</p>
-    </main>
-    {% include "footer.njk" %}
-  </body>
-</html>
+<h1>{{ title }}</h1>
+<p>Looks like you went somewhere unexected, sorry!</p>
