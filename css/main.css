@@ -172,6 +172,7 @@ nav li {
   margin-top: 5px;
   background: none;
   position: sticky;
+  position: -webkit-sticky;
   top:0;
   border:none;
 }
