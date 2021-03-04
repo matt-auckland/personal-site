@@ -71,7 +71,7 @@ header .links {
   margin: 0;
 }
 
-header .links a {
+header .links a:not(:first-child) {
   margin-left: 10px;
 }
 
@@ -147,6 +147,11 @@ nav li {
   color: var(--text-color-light);
   border: 1px solid var(--text-color-dark);
   cursor: pointer;
+}
+
+#theme-toggle svg {
+  width: 17px;
+  height: 17px;
 }
 
 .dark-theme #theme-toggle {
