@@ -8,10 +8,10 @@ body {
 }
 body.dark-theme {
   --text-color: var(--text-color-light);
-  --bkg-color: #202945;
-  --standout-block-bg-color: #303e68;
-  --link-color:#ce320e;
+  --bkg-color: #001F3F;
 
+  --standout-block-bg-color: #303e68;
+  --link-color:#FF851B;
 }
 
 
@@ -72,7 +72,17 @@ header .links {
 }
 
 header .links a {
-  margin-left: 8px;
+  margin-left: 10px;
+}
+
+header .links a.active {
+  font-weight:bold;
+}
+
+@media (pointer: coarse) {
+  header .links a {
+    padding: 12px;
+  }
 }
 
 /* End header */
@@ -116,10 +126,6 @@ nav li {
   font-size: 0.9em;
 }
 
-/* Remove button styles */
-#theme-toggle {
-}
-
 /* Styles */
 #theme-toggle {
   margin-left: auto;
@@ -132,6 +138,9 @@ nav li {
 
   width: 30px;
   height: 30px;
+  
+  flex: 30px 0 0;
+
   padding: 3px;
   border-radius: 20px;
   background: var(--text-color-dark);

@@ -8,11 +8,20 @@
       content="{{ description if description else global.description }}"
     />
     <title>{{ title if title else global.blogTitle }}</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     {% if pageCss %}
-    <link rel="stylesheet" href={{ "/css/" + pageCss + ".css"}}>
+    <link rel="preload" href={{ "/css/" + pageCss + ".css"}} as="style" onload="this.onload=null;this.rel='stylesheet'">
     {% endif %}
+
+    <noscript>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="/css/style.css">
+      {% if pageCss %}
+      <link rel="stylesheet" href={{ "/css/" + pageCss + ".css"}}>
+      {% endif %}
+    </noscript>
   </head>
 
   <body>

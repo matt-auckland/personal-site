@@ -5,21 +5,22 @@
     </a>
   </h1>
   <nav class="links">
-    <a href="/" style={{ 'font-weight:bold;' if page.url == '/' }}>
+    <a href="/" class={{ 'active' if page.url == '/' }}>
       /home
     </a>
-    <a href="/posts" style={{ 'font-weight:bold;' if page.url.startsWith('/posts/') }}>
+    <a href="/posts" class={{ 'active' if page.url.startsWith('/posts/') }}>
       /posts
     </a>
-    <a href="/projects" style={{ 'font-weight:bold;' if page.url.startsWith('/projects/') }}>
+    <a href="/projects" class={{ 'active' if page.url.startsWith('/projects/') }}>
       /projects
     </a>
   </nav>
 
   <button 
-    title="Toggle Dark mode"
-    aria-label="Toggle dark mode" 
-    role="switch" 
+    title="Toggle darkmode on or off, currently off"
+    aria-label="Toggle darkmode on or off, currently off" 
+    role="button" 
+    aria-pressed="false"
     tabindex="0" 
     id="theme-toggle" 
     onclick="toggleDarkMode()"
