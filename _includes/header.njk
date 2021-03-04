@@ -5,13 +5,13 @@
     </a>
   </h1>
   <nav class="links">
-    <a href="/" class={{ 'active' if page.url == '/' }}>
+    <a href="/" class="{{ 'active' if page.url == '/' }}">
       /home
     </a>
-    <a href="/posts" class={{ 'active' if page.url.startsWith('/posts/') }}>
+    <a href="/posts" class="{{ 'active' if page.url.startsWith('/posts/') }}">
       /posts
     </a>
-    <a href="/projects" class={{ 'active' if page.url.startsWith('/projects/') }}>
+    <a href="/projects" class="{{ 'active' if page.url.startsWith('/projects/') }}">
       /projects
     </a>
   </nav>

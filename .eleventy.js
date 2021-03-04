@@ -2,6 +2,7 @@ const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
 const embedEverything = require("eleventy-plugin-embed-everything");
+const { exec } = require("child_process");
 
 module.exports = function (eleventyConfig) {
   //plugins
@@ -52,4 +53,14 @@ module.exports = function (eleventyConfig) {
     (url, text) =>
       `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`
   );
+
+  eleventyConfig.on('afterBuild', () => {
+    // Run me after the build ends
+    exec('prettier "./_site/**/*.{html,js,css}" --write', function(err, stdout, stderr) {
+      if (err || stdout || stderr) console.log("prettier logs:")
+      if (err) console.log(err)
+      if(stdout) console.log(stdout);
+      if(stderr) console.log(stderr);
+    })
+  });
 };
