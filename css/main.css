@@ -81,7 +81,7 @@ header .links a.active {
 
 @media (pointer: coarse) {
   header .links a {
-    padding: 12px;
+    padding: 12px 0;
   }
 }
 
