@@ -1,9 +1,3 @@
-/* 
-  This file contains basic element styles
-  There should be no colours or variables in here
-*/
-
-
 /* Basic */
 html {
   /* 1 */
@@ -278,4 +272,204 @@ article img {
 footer {
   margin-top: 3em;
   font-size: 16px;
+}
+
+
+body {
+  --text-color-dark: #222;
+  --text-color-light: #eee;
+  --text-color: var(--text-color-dark);
+  --bkg-color: #efefef;
+  --standout-block-bg-color: #d9d9d9;
+  --link-color:#006ad3;
+}
+body.dark-theme {
+  --text-color: var(--text-color-light);
+  --bkg-color: #001F3F;
+
+  --standout-block-bg-color: #303e68;
+  --link-color:#FF851B;
+}
+
+
+body {
+  margin: 0;
+  background: var(--bkg-color);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a[target="_blank"] {
+  position: relative;
+}
+
+a[target="_blank"]::after {
+  content: "↗";
+  position: absolute;
+  font-size: 10px;
+  right: -8px;
+  top: -5px;
+}
+
+/* Header */
+
+header h1 {
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+header nav {
+  margin-top: 1em;
+  max-width: 100%;
+  margin-bottom: 1em;
+}
+
+header.blog-header {
+  padding: 15px 30px;
+  display: flex;
+  align-items: flex-end;
+}
+
+header .blog-name {
+  display: block;
+  font-size: 24px;
+  margin: 0 15px 0 0;
+}
+
+header .links {
+  display: block;
+  margin: 0;
+}
+
+header .links a:not(:first-child) {
+  margin-left: 10px;
+}
+
+header .links a.active {
+  font-weight:bold;
+}
+
+@media (pointer: coarse) {
+  header .links a {
+    padding: 12px 0;
+  }
+}
+
+/* End header */
+
+main {
+  max-width: 700px;
+  margin: auto;
+  width: 90vw;
+  flex-grow: 1;
+  padding: 10px 15px;
+}
+
+nav li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.footer-nav > * {
+  margin: 0 10px;
+}
+
+@supports (gap: 20px) {
+  .footer-nav {
+    gap: 20px;
+  }
+  .footer-nav > * {
+    margin: 0;
+  }
+}
+
+.post-tags,
+.post-date,
+.word-count {
+  font-size: 0.9em;
+}
+
+/* Styles */
+#theme-toggle {
+  margin-left: auto;
+  align-self: flex-start;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 30px;
+  height: 30px;
+  
+  flex: 30px 0 0;
+
+  padding: 3px;
+  border-radius: 20px;
+  background: var(--text-color-dark);
+  color: var(--text-color-light);
+  border: 1px solid var(--text-color-dark);
+  cursor: pointer;
+}
+
+#theme-toggle svg {
+  width: 17px;
+  height: 17px;
+}
+
+.dark-theme #theme-toggle {
+  border-color: var(--text-color-light);
+}
+
+.dark-theme #theme-toggle .moon {
+  display: none;
+}
+
+#theme-toggle .sun {
+  display: none;
+}
+
+.dark-theme #theme-toggle .sun {
+  display: initial;
+}
+
+
+.page-progess {
+  width: 100vw;
+  height: 5px;
+  margin-top: 5px;
+  background: none;
+  position: sticky;
+  position: -webkit-sticky;
+  top:0;
+  border:none;
+}
+
+progress.page-progess::-webkit-progress-bar {
+  background: transparent;
+}
+
+progress.page-progess::-webkit-progress-inner-value,
+progress.page-progess::-webkit-progress-value {
+  background-color: var(--link-color);
+}
+
+@supports selector(-moz-progress-bar) {
+  ::-moz-progress-bar {
+    background-color: var(--link-color);
+  }
 }
