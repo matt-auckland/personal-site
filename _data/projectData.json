@@ -24,7 +24,7 @@
     "tags": ["Svelte"]
   },
   {
-    "name": "This Website",
+    "name": "This Blog",
     "description": "Nothing fancy here, just static site built with Eleventy.",
     "url": "https://github.com/matt-auckland/personal-site",
     "tags": ["Eleventy"]

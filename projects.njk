@@ -1,0 +1,58 @@
+---
+layout: base-layout
+title: Personal Projects
+pageCss: projects
+---
+
+<h2>Personal Projects</h2>
+<p>A few things I've worked on over the years.</p>
+
+<div class="project-cont">
+  {%- for project in projectData -%}
+    <div class="project">
+      <div class="project__text">
+        <a href="{{project.url}}" target="_blank" class="project__name">
+          {{project.name}}
+        </a>
+        <div class="project__desc">
+          {{project.description}}
+        </div>
+      </div>
+      <div class="tags">
+        {%- for tag in project.tags -%}
+          <div class="tag {{tag | lower}}">{{tag | capitalize}}</div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% if codepenData %}
+<h2>Codepens</h2>
+<p>A few experiments I've whipped up in codepen that might be interesting to look at.</p>
+<div class="project-cont">
+  {%- for codepen in codepenData -%}
+  <div class="project code-pen">
+    <a href="/projects" target="_blank" class="project__name">My codepen</a>
+    <div class="thumbnail"></div>
+  </div>
+  {%- endfor -%}
+</div>
+
+
+<style>
+  .code-pen {
+    /* background-color: #717790;
+    border: none; */
+    display: block;
+  }
+  .code-pen .thumbnail {
+    height: 100px;
+    /* background-color:white; */
+  }
+
+  .title {
+    font-size: 1.4em;
+  }
+</style>
+{% endif %}

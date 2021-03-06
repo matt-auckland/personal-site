@@ -1,35 +1,39 @@
 .project-cont {
   display: flex;
-  gap: 50px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
+
+
 .project {
-  max-width: 400px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  padding: 8px;
+  margin: 10px 25px;
+  
+  flex: 0 0 220px;
+  
   border: 1px solid var(--text-color);
   border-radius: 4px;
-  flex: 1 0 220px;
-  padding: 8px;
-
-  margin: 10px;
 }
 
 .project:hover {
   border-bottom: var(--text-color) solid 1px;
 }
 
-@supports (gap: 20px) {
-  .project-cont {
-    gap: 20px;
-  }
 
+@supports (display: grid) {
+  .project-cont {
+    display: grid;
+    grid-gap: 20px ;
+    grid-template-columns: 1fr 1fr;
+  }
   .project {
     margin: 0;
+    flex: inherit;
   }
 }
 
@@ -51,7 +55,8 @@
 
 .tags {
   display: flex;
-  margin-top: 10px;
+  margin-top: auto;
+  padding-top: 10px;
   font-size: 0.8rem;
 }
 
@@ -64,12 +69,12 @@
 .tag.vue,
 .tag.vuepress {
   background-color: #41b883;
-  color: #fff;
+  color: #000;
 }
 
 .tag.svelte {
   background-color: #ff3e00;
-  color: #fff;
+  color: #000;
 }
 
 .tag.cordova {

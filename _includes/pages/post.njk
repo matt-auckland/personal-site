@@ -9,12 +9,12 @@ showProgress: true
   <div class="post-date">Last updated: {{page.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</div>
   {% if tags %}
     <div class="post-tags">
-    Tags:
-    {% for tag in tags %}
-        <a href="{{tag  | tagUrl | url}}">{{tag | capitalize}}</a>
-        {% if not loop.last %},{% endif%}
-        {% endfor %}
-      </div>
+    <span>Tags: </span>
+    {% for tag in tags -%}
+        <a href="{{tag | tagUrl | url}}">{{tag | capitalize}}</a>
+        {%- if not loop.last %}, {% endif %}
+      {%- endfor %}
+    </div>
     {% endif %}
     <div class="word-count">
       {{content | wordcount}} words
