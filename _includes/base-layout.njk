@@ -15,18 +15,12 @@
     <style>
       {{css  | safe}}
     </style>
-    
-    <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
     {% if pageCss %}
-    <link rel="preload" href={{ "/css/" + pageCss + ".css"}} as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{ '/css/' + pageCss + '.css'}}" as="style">
+    <link rel="stylesheet" href="{{ '/css/' + pageCss + '.css'}}">
     {% endif %}
-
-    <noscript>
-      <link rel="stylesheet" href="/css/style.css">
-      {% if pageCss %}
-      <link rel="stylesheet" href={{ "/css/" + pageCss + ".css"}}>
-      {% endif %}
-    </noscript>
   </head>
 
   <body>
