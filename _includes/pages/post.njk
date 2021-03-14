@@ -6,18 +6,37 @@ showProgress: true
 
 <article>
   <h1 class="post-title">{{ title }}</h1>
-  <div class="post-date">Last updated: {{page.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</div>
+  <div class="post-date">
+    Last updated:
+    <time
+      class="postlist-date"
+      datetime="{{
+        post.date.toLocaleDateString('en-NZ', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
+      }}"
+    >
+      {{
+        page.date.toLocaleDateString('en-NZ', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
+      }}</time
+    >
+  </div>
   {% if tags %}
-    <div class="post-tags">
+  <div class="post-tags">
     <span>Tags: </span>
     {% for tag in tags -%}
-        <a href="{{tag | tagUrl | url}}">{{tag | capitalize}}</a>
-        {%- if not loop.last %}, {% endif %}
-      {%- endfor %}
-    </div>
-    {% endif %}
-    <div class="word-count">
-      {{content | wordcount}} words
+    <a href="{{ tag | tagUrl | url }}">{{ tag | capitalize }}</a>
+    {%- if not loop.last %}, {% endif %} {%- endfor %}
   </div>
-    <div class="post-content">{{  content | safe}}</div>
-  </article>
+  {% endif %}
+  <div class="word-count">{{ content | wordcount }} words</div>
+  <div class="post-content">{{ content | safe }}</div>
+</article>
