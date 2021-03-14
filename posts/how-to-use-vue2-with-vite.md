@@ -30,7 +30,7 @@ npm install vue@2 # install Vue V2, replaces the Vue V3 package
 
 Now we need to update `vite.config.js` so it uses the new plugin:
 
-```javascript
+```js
 const { createVuePlugin } = require('vite-plugin-vue2');
 
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
 
 And now we need to update `main.js` so it uses Vue2 syntax to create our app instead of Vue3
 
-```javascript
+```js
 import Vue from 'vue';
 import App from './App.vue';
 
@@ -57,7 +57,7 @@ We'll need to update our `.Vue` files so they use Vue 2 syntax instead of Vue 3.
 
 `App.vue`:
 
-```vue
+```
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
@@ -88,7 +88,7 @@ export default {
 
 `HelloWorld.vue`:
 
-```vue
+```
 <template>
   <div>
     <h1>{{ msg }}</h1>
