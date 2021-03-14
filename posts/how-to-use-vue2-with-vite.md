@@ -1,5 +1,7 @@
 ---
 title: How to use Vue 2 with Vite
+date: 2021-03-14
+
 tags:
   - Vue
   - Vite

@@ -1,5 +1,6 @@
 ---
 title: Hello World
+date: 2020-08-24
 ---
 
 Seems appropriate to throw a post up on here so it's not empty.
