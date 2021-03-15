@@ -7,11 +7,11 @@ tags:
   - Vite
 ---
 
-If you're wondering how to use Vue2 with Vite, read on.
-
 If you just want an example repo to clone, visit here: [https://github.com/matt-auckland/vite-vue2-starter](https://github.com/matt-auckland/vite-vue2-starter).
 
-First we need to create a new Vite app using the Vue 3 template.
+If you're wondering how to use Vue2 with Vite, read on.
+
+First we'll need to create a new Vite app using the Vue 3 template.
 
 ```bash
 npm init @vitejs/app vue2-vite --template vue; # Init vite with Vue3
