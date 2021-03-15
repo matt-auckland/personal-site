@@ -53,11 +53,14 @@ Now if you run `npm run dev`, Vite should start up! But you should get an error:
 
 > [vite] Internal server error: Component template should contain exactly one root element. If you are using v-if on multiple elements, use v-else-if to chain them instead.
 
-We'll need to update our `.Vue` files so they use Vue 2 syntax instead of Vue 3. Here's what I did:
+We'll need to update our `.Vue` files so they use Vue 2 syntax instead of Vue 3. I've included the changes I made below, click on the file names to reveal the code.
 
-`App.vue`:
 
-```
+
+<details>
+    <summary>Click to expand code for <code>App.vue</code></summary>
+
+```html
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
@@ -85,51 +88,56 @@ export default {
 }
 </style>
 ```
+</details>
 
-`HelloWorld.vue`:
+<details>
+<summary>
+ Click to reveal code for <code>HelloWorld.vue</code>
+</summary>
 
-```
-<template>
-  <div>
-    <h1>{{ msg }}</h1>
+  ```html
+  <template>
+    <div>
+      <h1>{{ msg }}</h1>
 
-    <p>
-      <a href="https://vitejs.dev/guide/features.html" target="_blank"
-        >Vite Documentation</a
-      >
-      |
-      <a href="https://vuejs.org/v2/guide/" target="_blank"
-        >Vue 2 Documentation</a
-      >
-    </p>
+      <p>
+        <a href="https://vitejs.dev/guide/features.html" target="_blank"
+          >Vite Documentation</a
+        >
+        |
+        <a href="https://vuejs.org/v2/guide/" target="_blank"
+          >Vue 2 Documentation</a
+        >
+      </p>
 
-    <button @click="count++">count is: {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test hot module replacement.
-    </p>
-  </div>
-</template>
+      <button @click="count++">count is: {{ count }}</button>
+      <p>
+        Edit
+        <code>components/HelloWorld.vue</code> to test hot module replacement.
+      </p>
+    </div>
+  </template>
 
-<script>
-export default {
-  props: {
-    msg: String,
-  },
-  data() {
-    return {
-      count: 0,
-    };
-  },
-};
-</script>
+  <script>
+  export default {
+    props: {
+      msg: String,
+    },
+    data() {
+      return {
+        count: 0,
+      };
+    },
+  };
+  </script>
 
-<style scoped>
-a {
-  color: #42b983;
-}
-</style>
-```
+  <style scoped>
+  a {
+    color: #42b983;
+  }
+  </style>
+  ```
+</details>
 
 That should resolve all errors, happy coding!
 Feel free to log an issue on my [repo](https://github.com/matt-auckland/vite-vue2-starter) if it's still not working, or if you have any improvements to add :)

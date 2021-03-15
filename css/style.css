@@ -20,8 +20,8 @@ hgroup,
 main,
 menu,
 nav,
-section,
-summary {
+/* summary , */
+section {
   display: block;
 }
 
@@ -59,18 +59,24 @@ pre {
 }
 
 code {
- padding: 2px 4px;
- border-radius: 2px;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+pre code {
+  padding: 0;
 }
 
 code,
 pre,
 kbd {
-  background-color: var(--standout-block-bg-color);
-
   font-family: monospace;
   font-size: 0.9em;
   line-height: 154%;
+}
+
+kbd, :not(pre) > code {
+  background-color: var(--standout-block-bg-color);
 }
 
 /* Styles */
