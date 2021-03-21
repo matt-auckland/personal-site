@@ -7,7 +7,7 @@ tags:
   - Vite
 ---
 
-If you just want an example repo to clone, visit here: [https://github.com/matt-auckland/vite-vue2-starter](https://github.com/matt-auckland/vite-vue2-starter).
+If you just want an example repo to clone, visit here: [https://github.com/matt-auckland/vite-vue2-starter](https://github.com/matt-auckland/vite-vue2-starter). I'd recommend using [degit](https://github.com/Rich-Harris/degit) to clone it.
 
 If you're wondering how to use Vue2 with Vite, read on.
 
