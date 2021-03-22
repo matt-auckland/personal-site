@@ -4,38 +4,21 @@ const fs = require('fs');
 const fsUtils = require('nodejs-fs-utils');
 const { resolve } = require('path');
 
-function fileHash(filename, algorithm = 'md5') {
-  return new Promise((resolve, reject) => {
-    // Algorithm depends on availability of OpenSSL on platform
-    // Another algorithms: 'sha1', 'md5', 'sha256', 'sha512' ...
-    let shasum = crypto.createHash(algorithm);
-    try {
-      let s = fs.ReadStream(filename);
-      s.on('data', function (data) {
-        shasum.update(data);
-      });
-      // making digest
-      s.on('end', function () {
-        const hash = shasum.digest('hex');
-        return resolve(hash);
-      });
-    } catch (error) {
-      return reject('calc fail');
-    }
-  });
+// Based on https://gist.github.com/GuillermoPena/9233069#gistcomment-3149231
+function getFileHash(filename) {
+  let file = fs.readFileSync(filename);
+  return crypto.createHash('md5').update(file).digest('hex');
 }
 
 function getFileList() {
   let formatableFile = /.*\.(html|css|js)/;
   let files = [];
-  fsUtils.walkSync(
-    './_site',
-    function (err, path, stats, next, cache) {
-      if (formatableFile.test(path)) {
-        files.push(path);
-      }
-      next();
-    });
+  fsUtils.walkSync('./_site', function (err, path, stats, next, cache) {
+    if (formatableFile.test(path)) {
+      files.push(path);
+    }
+    next();
+  });
   return files;
 }
 
@@ -46,7 +29,7 @@ async function mapFilePathsToHashes(files) {
   files.forEach(async function (filePath, i) {
     promises.push(
       new Promise(async (resolve, reject) => {
-        let hash = await fileHash(filePath);
+        let hash = getFileHash(filePath);
         fileMap[filePath] = hash;
         resolve();
       })
@@ -73,9 +56,10 @@ async function prettifyFiles(fileMap) {
   }
 
   if (filesToPrettify.length) {
-    let prettierCommand = "npx prettier --write " + filesToPrettify.join(" ");
-    exec(prettierCommand, function(err, stdout, stderr) {
-      if (err || stdout || stderr) console.log("eleventy-plugin-prettier logs:")
+    let prettierCommand = 'npx prettier --write ' + filesToPrettify.join(' ');
+    exec(prettierCommand, function (err, stdout, stderr) {
+      if (err || stdout || stderr)
+        console.log('eleventy-plugin-prettier logs:');
       err && console.log(err);
       stdout && console.log(stdout);
       stderr && console.log(stderr);
