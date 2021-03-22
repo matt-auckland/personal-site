@@ -8,4 +8,4 @@ I'm a Software Engineer based out of {% extLink 'https://en.wikipedia.org/wiki/N
 
 ## About this site
 
-Fast, accesible, and minimal, this is just a place to show my personal projects and share my thoughts. This site is built with {% extLink 'https://www.11ty.dev/' 'Eleventy' %}, mostly using {% extLink 'https://mozilla.github.io/nunjucks/' 'Nunjucks templates' %} and Markdown.
+I just wanted to build something that was quick to load, and accesible, with minimal design. This is just a place to show a few personal projects and share my thoughts. This site is built with {% extLink 'https://www.11ty.dev/' 'Eleventy' %}, mostly using {% extLink 'https://mozilla.github.io/nunjucks/' 'Nunjucks templates' %} and Markdown.
