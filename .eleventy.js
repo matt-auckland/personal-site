@@ -33,10 +33,12 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection('posts', function (collectionApi) {
-    // get unsorted items
     const posts = collectionApi
       .getAll()
-      .filter((i) => i.data.layout == 'pages/post.njk');
+      .filter((i) => i.data.layout == 'pages/post.njk')
+      .sort((postA, postB) => {
+        return postA.date - postB.date
+      });
     return posts;
   });
 
