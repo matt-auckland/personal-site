@@ -5,6 +5,7 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const embedEverything = require('eleventy-plugin-embed-everything');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const formatFiles = require('./utils/formatFiles');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -56,12 +57,5 @@ module.exports = function (eleventyConfig) {
       `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`
   );
 
-  eleventyConfig.on('afterBuild', () => {
-    exec('npx prettier "./_site/**/*.{html,js,css}" --write', function(err, stdout, stderr) {
-      if (err || stdout || stderr) console.log("eleventy-plugin-prettier logs:")
-      err && console.log(err);
-      stdout && console.log(stdout);
-      stderr && console.log(stderr);
-    });
-  });
+  eleventyConfig.on('afterBuild', formatFiles);
 };
