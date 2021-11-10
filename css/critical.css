@@ -7,8 +7,8 @@ body {
   --text-color-dark: #222;
   --text-color-light: #eee;
   --text-color: var(--text-color-dark);
-  --bkg-color: #efefef;
-  --standout-block-bg-color: #d9d9d9;
+  --bkg-color: #fafafa;
+  --standout-block-bg-color: ##f4f4f4;
   --link-color:#006ad3;
 }
 body.dark-theme {
@@ -71,4 +71,13 @@ a:active {
   opacity: 0.9;
   border-bottom: 1px solid var(--link-color);
   filter: brightness(1.7);
+}
+
+figure {
+  margin: 3rem auto;
+  max-width: 600px;
+}
+
+figcaption {
+  text-align: center;
 }

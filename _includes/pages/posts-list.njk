@@ -14,26 +14,25 @@
       class="postlist-date"
       datetime="{{
         post.date.toLocaleDateString('en-NZ', {
-          weekday: 'long',
           year: 'numeric',
-          month: 'long',
+          month: 'short',
           day: 'numeric'
         })
       }}"
     >
       {{
         post.date.toLocaleDateString('en-NZ', {
-          weekday: 'long',
           year: 'numeric',
-          month: 'long',
+          month: 'short',
           day: 'numeric'
         })
       }}
     </time>
-    {% for tag in post.data.tags %} {%- if tag != "posts" -%} {% set tagUrl
-    %}/tags/{{ tag }}/{% endset %}
-    <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
-    {%- endif -%} {%- if not loop.last %}, {% endif %} {% endfor %}
+      {% for tag in post.data.tags %} 
+        {%- if tag != "posts" -%} 
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
+        {%- endif -%} {%- if not loop.last %}, {% endif %} {% endfor %}
   </li>
   {% endfor %}
 </ul>

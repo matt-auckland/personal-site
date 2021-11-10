@@ -108,7 +108,7 @@ ul ul {
 main h1 {
   margin-top: 1em;
   line-height: 1.1em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1rem;
   font-weight: 600;
 }
 
@@ -315,6 +315,15 @@ nav li {
 .word-count {
   font-size: 0.9em;
 }
+
+
+.post-date {
+  margin: 0.5rem 0;
+}
+.post-tags {
+  margin-bottom: 2rem;
+}
+
 
 /* Styles */
 #theme-toggle {

@@ -2,14 +2,14 @@ const fs = require('fs');
 const { exec } = require('child_process');
 
 const pluginRss = require('@11ty/eleventy-plugin-rss');
-const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
+// const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const embedEverything = require('eleventy-plugin-embed-everything');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const formatFiles = require('./utils/formatFiles');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(lazyImagesPlugin);
+  // eleventyConfig.addPlugin(lazyImagesPlugin);
   eleventyConfig.addPlugin(embedEverything);
   eleventyConfig.addPlugin(syntaxHighlight);
 

@@ -31,12 +31,11 @@ showProgress: true
   </div>
   {% if tags %}
   <div class="post-tags">
-    <span>Tags: </span>
     {% for tag in tags -%}
-    <a href="{{ tag | tagUrl | url }}">{{ tag | capitalize }}</a>
+    <a href="{{ tag | tagUrl | url }}">#{{ tag | capitalize }}</a>
     {%- if not loop.last %}, {% endif %} {%- endfor %}
   </div>
   {% endif %}
-  <div class="word-count">{{ content | wordcount }} words</div>
+  <hr>
   <div class="post-content">{{ content | safe }}</div>
 </article>
