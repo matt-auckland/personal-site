@@ -11,7 +11,7 @@ tags:
 
 (If you just want the how, skip this section).
 
-With Android 12 coming out, I launched an initiative at work to make sure that our app doesn't break when the new update launches, thankfully nothing was broken but one thing I did notice is that our app's icon looked a bit different.
+With Android 12 coming out, I launched an initiative at work to make sure that our app doesn't break when the new update launches, thankfully nothing was broken but one thing I did notice is that our app's icon looked a bit different. (Note: For the purposes of this post I'm using a fresh Cordova app).
 
 <figure>
   <img src="/assets/images/regular-icon.png" width="316" height="316" loading="lazy"/>
