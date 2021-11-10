@@ -11,7 +11,7 @@ tags:
 
 (If you just want the how, skip this section).
 
-With Android 12 coming out, I launched an initiative at work to make sure that our app doesn't break when the new update launches, thankfully nothing was broken but one thing I did notice is that our app's icon looked a bit different. (Note: For the purposes of this post I'm using a fresh Cordova app).
+With Android 12 coming out, I launched an initiative at work to make sure that our app doesn't break when the new update launches, thankfully nothing was broken but one thing I did notice is that our app's icon looked a bit different. (Note: For the purposes of this post I'm using a fresh Cordova project).
 
 <figure>
   <img src="/assets/images/regular-icon.png" width="316" height="316" loading="lazy"/>
@@ -21,7 +21,9 @@ With Android 12 coming out, I launched an initiative at work to make sure that o
 </figure>
 
 
-This lead me to Android's {% extLink 'https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive.html' 'Adaptive icons' %}.
+This lead me to Android's {% extLink 'https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive.html' 'Adaptive icons' %}, and I realised that if you aren't using adaptive icons, your icon is gonna look kind of bad, which was more than enough motivation for me.
+
+But if you need more than one reason, check out this article: {% extLink 'https://medium.com/google-design/designing-adaptive-icons-515af294c783' '"Designing Adaptive Icons"' %}
 
 <figure>
   <img src="/assets/images/adaptive-icon.png" width="316" height="316" loading="lazy"/>
@@ -31,7 +33,6 @@ This lead me to Android's {% extLink 'https://developer.android.com/guide/practi
 </figure>
 
 
-If you need more than one reason, check out this article: {% extLink 'https://medium.com/google-design/designing-adaptive-icons-515af294c783' '"Designing Adaptive Icons"' %}
 
 
 ## Just tell me how to do it
