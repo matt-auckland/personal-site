@@ -29,6 +29,10 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addFilter('cacheBust', function (url = "") {
+    return `${url}?v=${Date.now()}`;
+  });
+
   eleventyConfig.addFilter('tagUrl', function (tag) {
     return `../../tags/${tag.toLowerCase()}`;
   });
@@ -69,6 +73,13 @@ module.exports = function (eleventyConfig) {
     (url, text) =>
       `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`
   );
+
+  eleventyConfig.addPairedShortcode("note", function(content, title) { 
+      return `<div class="note">
+      <div class="note-title">${title}</div>${content}
+      </div>`;
+  });
+
 
   eleventyConfig.on('afterBuild', formatFiles);
 };

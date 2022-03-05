@@ -13,13 +13,13 @@
     <style>
       {{css  | safe}}
     </style>
-    <link rel="preload" href="/css/style.css" as="style" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="preload" href="/css/prismjs.css" as="style" />
-    <link rel="stylesheet" href="/css/prismjs.css" />
+    <link rel="preload" href="/css/style.css{{''| cacheBust}}" as="style" />
+    <link rel="stylesheet" href="/css/style.css{{''| cacheBust}}" />
+    <link rel="preload" href="/css/prismjs.css{{''| cacheBust}}" as="style" />
+    <link rel="stylesheet" href="/css/prismjs.css{{''| cacheBust}}" />
     {% if pageCss %}
-    <link rel="preload" href="{{ '/css/' + pageCss + '.css' }}" as="style" />
-    <link rel="stylesheet" href="{{ '/css/' + pageCss + '.css' }}" />
+    <link rel="preload" href="{{ '/css/' + pageCss + '.css' | cacheBust}}" as="style" />
+    <link rel="stylesheet" href="{{ '/css/' + pageCss + '.css' | cacheBust}}" />
     {% endif %}
   </head>
 

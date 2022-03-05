@@ -1,34 +1,63 @@
 ---
 layout: base-layout
-date: Last Modified
 showProgress: true
 ---
 
 <article>
   <h1 class="post-title">{{ title }}</h1>
+  {% if date %}
   <div class="post-date">
-    Last updated:
-    <time
-      class="postlist-date"
-      datetime="{{
-        page.date.toLocaleDateString('en-NZ', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })
-      }}"
-    >
-      {{
-        page.date.toLocaleDateString('en-NZ', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })
-      }}</time
-    >
+    <span>
+      Written:
+      <time
+        class="postlist-date"
+        datetime="{{
+          page.date.toLocaleDateString('en-NZ', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        }}"
+      >
+        {{
+          page.date.toLocaleDateString('en-NZ', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        }}
+      </time>
+    </span>
+    {% if updated %}
+    <span>
+      , updated:
+      <time
+        class="postlist-date"
+        datetime="{{
+          updated.toLocaleDateString('en-NZ', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        }}"
+      >
+        {{
+          updated.toLocaleDateString('en-NZ', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        }}
+      </time>
+    </span>
+    {% endif %}
   </div>
+  {% endif %}
+
   {% if tags %}
   <div class="post-tags">
     {% for tag in tags -%}

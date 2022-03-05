@@ -1,6 +1,7 @@
 ---
 title: How to use Vue 2 with Vite
 date: 2021-03-14
+updated: 2022-03-05
 
 tags:
   - Vue
@@ -27,6 +28,10 @@ We also need to install Vue2 itself!
 npm install vite-plugin-vue2; # add vue2 plugin
 npm install vue@2 # install Vue V2, replaces the Vue V3 package
 ```
+
+{% raw %}
+<div class="note"><div class="note-title">EDIT, March 5 2022</div><span>Some people seem to need to install <code>vue-template-compiler</code> in order to get this working, I didn't but if you are having issues, try <code>npm i vue-template-compiler</code> and see if that helps!</span></div>
+{% endraw %}
 
 Now we need to update `vite.config.js` so it uses the new plugin:
 
@@ -94,7 +99,7 @@ export default {
 <summary>
  Click to reveal code for <code>HelloWorld.vue</code>
 </summary>
-
+{% raw %}
   ```html
   <template>
     <div>
@@ -137,6 +142,7 @@ export default {
   }
   </style>
   ```
+  {% endraw %}
 </details>
 
 That should resolve all errors, happy coding!
