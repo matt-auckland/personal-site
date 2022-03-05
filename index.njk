@@ -1,0 +1,21 @@
+---
+layout: base-layout.njk
+---
+<section>
+  <h2>Hey, I'm <em>Mat</em> 👋</h2>
+  <p>
+    JavaScript Developer 🧑‍💻, Martial Artist 🥋, and Curry Cook 🍛 
+  </p>
+  <p>Right now I mostly work with Vue, Cordova, and NodeJS, but I like to dabble in all sorts of other tech.</p>
+  <p>
+    This site serves as a bit of a showcase, reference, and general brain dump, so content may vary!
+  </p>
+</section>
+
+{% if collections.posts %}
+<section class="recent-posts">
+  <h2>Recent Posts</h2>
+  {% set postsList = collections.recentPosts%}
+  {% include "pages/posts-list.njk" %}
+</section>
+{% endif %}

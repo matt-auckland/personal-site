@@ -33,14 +33,27 @@ module.exports = function (eleventyConfig) {
     return `../../tags/${tag.toLowerCase()}`;
   });
 
+  eleventyConfig.addFilter("sliceArr", function(arr, count) {
+    return arr.slice(0, count);
+  });
+
+
   eleventyConfig.addCollection('posts', function (collectionApi) {
-    const posts = collectionApi
+    return collectionApi
       .getAll()
       .filter((i) => i.data.layout == 'pages/post.njk')
       .sort((postA, postB) => {
         return postA.date - postB.date
       });
-    return posts;
+  });
+
+  eleventyConfig.addCollection('recentPosts', function (collectionApi) {
+    return collectionApi
+      .getAll()
+      .filter((i) => i.data.layout == 'pages/post.njk')
+      .sort((postA, postB) => {
+        return (postA.date - postB.date) * -1
+      }).slice(0,5);
   });
 
   eleventyConfig.addWatchTarget('css/*');

@@ -6,5 +6,5 @@ permalink: /posts/
 
 <h1>Posts</h1>
 
-{% set postslist = collections.posts %}
+{% set postsList = collections.posts | reverse %}
 {% include "pages/posts-list.njk" %}

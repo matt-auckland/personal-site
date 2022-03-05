@@ -378,6 +378,7 @@ nav li {
   position: -webkit-sticky;
   top:0;
   border:none;
+  width: 100%;
 }
 
 progress.page-progess::-webkit-progress-bar {
