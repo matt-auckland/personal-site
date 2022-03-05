@@ -408,3 +408,53 @@ progress.page-progess::-webkit-progress-value {
     background-color: var(--link-color);
   }
 }
+
+.book-list li {
+  
+}
+
+.book-list li div {
+  flex: 1 0 100%;
+}
+
+.book-list li {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 3px 5px; 
+  margin: 0.8rem 0;
+}
+
+.book-tag {
+  flex: 0 0;
+  white-space: nowrap;
+  padding: 0.1rem 0.5rem;
+  background-color: #dbdbdb;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.book-tag-library-loan {
+  
+}
+
+.book-tag-audio-book {
+  background-color: hsl(320, 60%, 80%);
+}
+
+.book-tag-book {
+  background-color: hsl(290, 70%, 70%);
+}
+.book-tag-ebook {
+  background-color: hsl(260, 60%, 80%);
+}
+
+.book-tag-didnt-finish {
+  background-color: hsl(30, 80%, 60%);
+}
+.book-tag-reading {
+  background-color: hsl(130, 90%, 80%);
+}
+.book-tag-complete {
+  background-color: hsl(130, 60%, 60%);
+}

@@ -1,0 +1,41 @@
+---
+layout: base-layout
+title: What have I been reading?
+---
+
+<section>
+  <h2>{{title}}</h2>
+  <p>
+    I'll be keeping track of what I've been reading here, and hopefully I'll share my thoughts a bit too.
+  </p>
+  <p>
+    Books are listed in the order I finished them, and if I didn't finish, if it was a library book I probably just had to return it before I was done 😅
+  </p>
+</section>
+
+<section class="book-list">
+  {% for month in bookList %}
+  <h3>{{month[0].dateLabel}}</h3>
+  <ul>
+    {% for book in month %}
+    <li>
+      <div>
+        {{book.title}} - {{book.authours}} {% if book.post %} - <a href="{{book.post}}">Read what I think</a>.{% endif %}
+      </div>
+      {% if book.rating %}
+      <div>
+        {% for i in range(1,6) %}
+          {% if book.rating >= i %}
+          ★
+          {% else %}
+          ☆
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% booktag book.tags %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</section>

@@ -74,6 +74,26 @@ module.exports = function (eleventyConfig) {
       `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`
   );
 
+  eleventyConfig.addShortcode(
+    'booktag',
+    (tagArr) => {
+      function getTagHtml(tag) {
+        return `<span class="book-tag book-tag-${tag.toLowerCase().replace("'", "").replace(/\ /g, "-")}">${tag.replace(/\-/g, ' ')}</span>`
+      }
+
+      if (Array.isArray(tagArr)) {
+        let html = '';
+        tagArr.forEach((tag) => {
+          html += getTagHtml(tag);
+        });
+        return html;
+      } else if (typeof tagArr === 'string') {
+        return getTagHtml(tagArr);
+      }
+      return '';
+    }
+  );
+
   eleventyConfig.addPairedShortcode("note", function(content, title) { 
       return `<div class="note">
       <div class="note-title">${title}</div>${content}

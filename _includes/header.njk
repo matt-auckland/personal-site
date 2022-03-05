@@ -8,11 +8,14 @@
     <a href="/" class="{{ 'active' if page.url == '/' }}">
       /home
     </a>
-    <a href="/posts" class="{{ 'active' if page.url.startsWith('/posts/') }}">
+    <a href="/posts" class="{{ 'active' if page.url.startsWith('/posts') }}">
       /posts
     </a>
-    <a href="/projects" class="{{ 'active' if page.url.startsWith('/projects/') }}">
+    <a href="/projects" class="{{ 'active' if page.url.startsWith('/projects') }}">
       /projects
+    </a>
+    <a href="/reading-list" class="{{ 'active' if page.url.startsWith('/reading-list') }}">
+      /reading-list
     </a>
   </nav>
 
