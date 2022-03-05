@@ -432,6 +432,7 @@ progress.page-progess::-webkit-progress-value {
   background-color: #dbdbdb;
   border-radius: 10px;
   font-size: 0.9rem;
+  color: var(--text-color-dark);
 }
 
 .book-tag-library-loan {
