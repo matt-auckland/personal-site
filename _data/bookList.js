@@ -1,5 +1,18 @@
 const bookList = [
   {
+    title: "Atomic Habits",
+    authours: "James Clear",
+    post: null,
+    rating: null,
+    tags: [
+      "Audio Book",
+      "Library Loan",
+      "Reading"
+    ],
+    startDate: new Date("2022/3/10"),
+    endDate: null,
+  },
+  {
     title: "Sleep",
     authours: "Nick Littlehales",
     post: null,
@@ -46,7 +59,7 @@ const bookList = [
     tags: [
       "eBook",
       "Library Loan",
-      "Reading"
+      "Didn't Finish"
     ],
     startDate: new Date("2022/3/1"),
     endDate: ""
