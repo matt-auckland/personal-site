@@ -320,6 +320,10 @@ nav li {
   }
 }
 
+.post-tag {
+  font-size: 0.9rem;
+}
+
 .post-tags,
 .post-date,
 .word-count {

@@ -4,6 +4,9 @@ date: 2022-03-15
 
 tags:
   - Cordova
+  - Ionic
+  - Android
+  - iOS
 ---
 
 Generally Cordova serves it's webviews from one of two locations:
