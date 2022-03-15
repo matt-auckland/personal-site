@@ -8,7 +8,7 @@ body {
   --text-color-light: #eee;
   --text-color: var(--text-color-dark);
   --bkg-color: #fafafa;
-  --standout-block-bg-color: ##f4f4f4;
+  --standout-block-bg-color: hsl(210, 50%, 81%);
   --link-color:#006ad3;
 }
 body.dark-theme {

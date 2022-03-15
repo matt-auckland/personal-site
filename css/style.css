@@ -94,7 +94,7 @@ p {
 }
 
 .note {
-    border: 2px solid #cccccc;
+    border: 2px solid #8b8b8b;
     background-color: var(--standout-block-bg-color);
     border-radius: 6px;
     padding: 0.5rem 1rem;
@@ -409,9 +409,6 @@ progress.page-progess::-webkit-progress-value {
   }
 }
 
-.book-list li {
-  
-}
 
 .book-list li div {
   flex: 1 0 100%;
