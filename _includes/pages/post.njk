@@ -61,7 +61,7 @@ showProgress: true
   {% if tags %}
   <div class="post-tags">
     {% for tag in tags -%}
-    <a href="{{ tag | tagUrl | url }}">#{{ tag | capitalize }}</a>
+    <a href="{{ tag | tagUrl | url }}">#{{ tag | formatTag }}</a>
     {%- if not loop.last %}, {% endif %} {%- endfor %}
   </div>
   {% endif %}

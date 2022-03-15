@@ -14,7 +14,7 @@ pagination:
 permalink: /tags/{{tag}}/
 ---
 
-<h1>Tagged “{{ tag }}”</h1>
+<h1>Tagged “{{ tag | formatTag }}”</h1>
 
 <ol>
 {% set taglist = collections[ tag ] %}

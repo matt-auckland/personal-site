@@ -36,6 +36,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('tagUrl', function (tag) {
     return `../../tags/${tag.toLowerCase()}`;
   });
+  
+  eleventyConfig.addFilter('formatTag', function (tag) {
+    const lowercaseTag = `${tag.toLowerCase()}`;
+    if (lowercaseTag === 'ios') return 'iOS';
+    return lowercaseTag.slice(0,1).toUpperCase() +  lowercaseTag.slice(1);
+  });
 
   eleventyConfig.addFilter("sliceArr", function(arr, count) {
     return arr.slice(0, count);
