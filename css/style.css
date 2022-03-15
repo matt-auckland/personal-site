@@ -8,7 +8,6 @@ html {
   text-size-adjust: 100%;
 }
 
-
 article,
 aside,
 details,
@@ -25,11 +24,9 @@ section {
   display: block;
 }
 
-
 main {
   outline: none;
 }
-
 
 /* Table */
 .table-wrapper {
@@ -76,7 +73,8 @@ kbd {
   line-height: 154%;
 }
 
-kbd, :not(pre) > code {
+kbd,
+:not(pre) > code {
   background-color: var(--standout-block-bg-color);
 }
 
@@ -94,11 +92,11 @@ p {
 }
 
 .note {
-    border: 2px solid #8b8b8b;
-    background-color: var(--standout-block-bg-color);
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
-    margin: 1.5rem 0.5rem;
+  border: 2px solid #8b8b8b;
+  background-color: var(--standout-block-bg-color);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin: 1.5rem 0.5rem;
 }
 
 .note-title {
@@ -114,7 +112,7 @@ hr {
 ul ol,
 ol ol,
 ul ul {
-  margin: 0 2em;
+  margin: 0 1em;
 }
 
 /* Pages */
@@ -209,7 +207,6 @@ article img {
   margin: 1em auto;
 }
 
-
 /* Pagination */
 
 .pagination {
@@ -230,12 +227,12 @@ footer {
   font-size: 16px;
 }
 
-a[target="_blank"] {
+a[target='_blank'] {
   position: relative;
 }
 
-a[target="_blank"]::after {
-  content: "↗";
+a[target='_blank']::after {
+  content: '↗';
   position: absolute;
   font-size: 10px;
   right: -8px;
@@ -279,7 +276,7 @@ header .links a:not(:first-child) {
 }
 
 header .links a.active {
-  font-weight:bold;
+  font-weight: bold;
 }
 
 @media (pointer: coarse) {
@@ -329,14 +326,12 @@ nav li {
   font-size: 0.9em;
 }
 
-
 .post-date {
   margin: 0.5rem 0;
 }
 .post-tags {
   margin-bottom: 2rem;
 }
-
 
 /* Styles */
 #theme-toggle {
@@ -350,7 +345,7 @@ nav li {
 
   width: 30px;
   height: 30px;
-  
+
   flex: 30px 0 0;
 
   padding: 3px;
@@ -382,16 +377,15 @@ nav li {
   display: initial;
 }
 
-
 .page-progess {
   height: 5px;
   margin-top: 5px;
   background: none;
   position: sticky;
   position: -webkit-sticky;
-  top:0;
-  border:none;
-  width: 100%; 
+  top: 0;
+  border: none;
+  width: 100%;
 }
 
 progress.page-progess::-webkit-progress-bar {
@@ -409,7 +403,6 @@ progress.page-progess::-webkit-progress-value {
   }
 }
 
-
 .book-list li div {
   flex: 1 0 100%;
 }
@@ -418,7 +411,7 @@ progress.page-progess::-webkit-progress-value {
   display: flex;
   align-content: center;
   flex-wrap: wrap;
-  gap: 3px 5px; 
+  gap: 3px 5px;
   margin: 0.8rem 0;
 }
 
@@ -433,7 +426,6 @@ progress.page-progess::-webkit-progress-value {
 }
 
 .book-tag-library-loan {
-  
 }
 
 .book-tag-audio-book {
