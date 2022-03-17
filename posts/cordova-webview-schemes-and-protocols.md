@@ -72,15 +72,13 @@ Changing your schemes can cause your app to lose access to data that it's storin
 
 If this was helpful to you I'm glad, these behaviours/features certainly took me for a spin when I discovered them, and hopefully this post will serve as a useful resource to you and others.
 
-Feel free to reach out to me on {% extLink "https://github.com/matt-auckland/personal-site/issues" "Github" %} or {% extLink "https://twitter.com/mattatt4ck" "Twitter" %} if you have questions/corrections or just wanna chat.
-
 I also want to give my thanks to Cordova contributors Erisu and dpouge from the {% extLink "https://join.slack.com/t/cordova/shared_invite/zt-z70vy6tx-7VNulesO0Qz0Od9QV4tc1Q" "Cordova Slack Channel" %}, who helped clarify and share some information on this topic.
 ## Further Reading
 
 Cordova Android
-- [Introduction of the new default scheme for Android.](https://github.com/apache/cordova-android/pull/1137)
-- [Backwards compatibility support for file scheme](https://github.com/apache/cordova-android/pull/1222)
+- {% extLink "https://github.com/apache/cordova-android/pull/1137" "PR introducting of the new default scheme for Android." %}
+- {% extLink "https://github.com/apache/cordova-android/pull/1222" "PR for backwards compatibility support for the 'file' scheme" %}
 
 Cordova iOS
-- [Added Support for Scheme & Hostname](https://github.com/apache/cordova-ios/pull/781)
-- [Reverted the default to file](https://github.com/apache/cordova-ios/pull/866), because of concern it was a massive breaking.
+- {% extLink "https://github.com/apache/cordova-ios/pull/781" "PR adding support for Scheme & Hostname" %}
+- {% extLink "https://github.com/apache/cordova-ios/pull/866" "PR reverting the default scheme to 'file'" %}, because of concern it was a massive breaking change.
