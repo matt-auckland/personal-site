@@ -1,6 +1,7 @@
 ---
 title: Cordova Webview Schemes/Protocols
 date: 2022-03-15
+updated: 2022-03-16
 
 tags:
   - Cordova
@@ -11,9 +12,10 @@ tags:
 
 Generally Cordova serves it's webviews from one of two locations:
 
-- `https://localhost` for Android (cordova-android v10.1.1)
+- `https://localhost` for Android (cordova-android v10.x.x)
   - This was `file:///android_asset/www/index.html` in earlier versions
-- `app://localhost` for iOS (cordova-ios v6.2.0)
+- `file://` for iOS (cordova-ios v6.x.x)
+  - `file://localhost` sometimes depending on settings, see the section on iOS below
 
 If you're using {% extLink "https://github.com/ionic-team/cordova-plugin-ionic-webview" "cordova-plugin-ionic-webview" %} you might have something like:
 
@@ -38,10 +40,11 @@ These URLs can sometimes do behave in unexpected ways when you use them inside a
 
 ## Android solutions
 
-If you're on one of the newer versions of `cordova-android` (v10 or higher I believe), you should be serving your app from HTTPS by default, but if you're not, or you're on a lower version try the following:
+If you're on one of the newer versions of `cordova-android` (v10 or higher), you should be serving your app from HTTPS by default, but if you're not for some reason, or you're on a lower version, you can add `<preference name="scheme" value="https" />` to your `config.xml` to change that.
 
-If your Cordova app is serving from http this could be an issue on Android as by default Android does not allow network requests to use HTTP as it's insecure, if you can't change from HTTP to HTTPS for some reason, I recommend following {% extLink "https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html?#android-quirks" "this guide" %} in the Cordova docs to allow insecure network requests. Please consider if this is the right option for you though, security matters!
+If your Cordova app is serving from HTTP this could be an issue on Android as by default Android does not allow network requests to use HTTP as it's insecure, if you can't change from HTTP to HTTPS for some reason, I recommend following {% extLink "https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html?#android-quirks" "this guide" %} in the Cordova docs to allow insecure network requests. Please consider if this is the right option for you though, security matters!
 
+You can also tweak the `localhost` part of the URL (the hostname) to be something else by using  `<preference name="hostname" value="your_value" />`
 ## iOS solutions
 
 Unfortunately you cannot set your app to use HTTPS on iOS, while you can configure the protocol, Apple disallows the use of HTTP or HTTPS in it's webviews when serving files. I'm sure they have a good reason for doing so but I'm not privy to what that is.
@@ -49,14 +52,35 @@ This limitation also applies to the `cordova-plugin-ionic-webview` plugin.
 
 I haven't found a good work around for this sadly, but if I do I'll update this post.
 
+You can also use the `<preference name="scheme" value="your_value" />`, `<preference name="hostname" value="your_value" />` preferences for iOS but the scheme values cannot be `http`, `https` or `file`.
+
+The hostname is normally undefined by default but will switch to localhost by default when you set a custom scheme.
+
+dpouge from the Cordova team recommends using `app` as a scheme to make life a bit easier on iOS.
+
+
 ## Iconic Web View
 
 If you're using `cordova-plugin-ionic-webview`, your app is probably serving from `http://localhost` on Android, to change this you can add a `<preference name="Scheme" value="https" />` tag to your `config.xml` (I'd do it under the Android platform section as iOS also shares this preference but with some quirks) which will change the protocol you serve the app from HTTP to HTTPS.
 
-The ionic webview plugin also allows you to configure {% extLink "'Mixed Content Mode'" "https://github.com/ionic-team/cordova-plugin-ionic-webview#mixedcontentmode" %}, which may be required to solve the issue if you need to keep on HTTP for some reason.
+The ionic webview plugin also allows you to configure {% extLink  "https://github.com/ionic-team/cordova-plugin-ionic-webview#mixedcontentmode" "'Mixed Content Mode'" %}, which may be required to solve the issue if you need to keep on HTTP for some reason.
 
+## A warning on changing your schemes
+
+Changing your schemes can cause your app to lose access to data that it's storing in places like localStorage, so if you depend on that I'd recommend reading {% extLink "https://github.com/apache/cordova-ios/issues/906" "this Github issue" %} for information on migrating your data.
 ## Closing Notes
 
 If this was helpful to you I'm glad, these behaviours/features certainly took me for a spin when I discovered them, and hopefully this post will serve as a useful resource to you and others.
 
-Feel free to reach out to me on [Github](https://github.com/matt-auckland/personal-site/issues) or [Twitter](https://twitter.com/mattatt4ck) if you have questions/corrections or just wanna chat.
+Feel free to reach out to me on {% extLink "https://github.com/matt-auckland/personal-site/issues" "Github" %} or {% extLink "https://twitter.com/mattatt4ck" "Twitter" %} if you have questions/corrections or just wanna chat.
+
+I also want to give my thanks to Cordova contributors Erisu and dpouge from the {% extLink "https://join.slack.com/t/cordova/shared_invite/zt-z70vy6tx-7VNulesO0Qz0Od9QV4tc1Q" "Cordova Slack Channel" %}, who helped clarify and share some information on this topic.
+## Further Reading
+
+Cordova Android
+- [Introduction of the new default scheme for Android.](https://github.com/apache/cordova-android/pull/1137)
+- [Backwards compatibility support for file scheme](https://github.com/apache/cordova-android/pull/1222)
+
+Cordova iOS
+- [Added Support for Scheme & Hostname](https://github.com/apache/cordova-ios/pull/781)
+- [Reverted the default to file](https://github.com/apache/cordova-ios/pull/866), because of concern it was a massive breaking.
