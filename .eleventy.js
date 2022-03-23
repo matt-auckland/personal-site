@@ -13,22 +13,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(embedEverything);
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  eleventyConfig.setBrowserSyncConfig({
-    callbacks: {
-      ready: function (err, bs) {
-        bs.addMiddleware('*', (req, res) => {
-          const content_404 = fs.readFileSync('_site/404.html');
-          // Provides the 404 content without redirect.
-          res.write(content_404);
-          // Add 404 http status code in request header.
-          // res.writeHead(404, { "Content-Type": "text/html" });
-          res.writeHead(404);
-          res.end();
-        });
-      },
-    },
-  });
-
   eleventyConfig.addFilter('cacheBust', function (url = "") {
     return `${url}?v=${Date.now()}`;
   });
@@ -36,14 +20,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('tagUrl', function (tag) {
     return `../../tags/${tag.toLowerCase()}`;
   });
-  
+
   eleventyConfig.addFilter('formatTag', function (tag) {
     const lowercaseTag = `${tag.toLowerCase()}`;
     if (lowercaseTag === 'ios') return 'iOS';
-    return lowercaseTag.slice(0,1).toUpperCase() +  lowercaseTag.slice(1);
+    return lowercaseTag.slice(0, 1).toUpperCase() + lowercaseTag.slice(1);
   });
 
-  eleventyConfig.addFilter("sliceArr", function(arr, count) {
+  eleventyConfig.addFilter("sliceArr", function (arr, count) {
     return arr.slice(0, count);
   });
 
@@ -63,7 +47,7 @@ module.exports = function (eleventyConfig) {
       .filter((i) => i.data.layout == 'pages/post.njk')
       .sort((postA, postB) => {
         return (postA.date - postB.date) * -1
-      }).slice(0,5);
+      }).slice(0, 10);
   });
 
   eleventyConfig.addWatchTarget('css/*');
@@ -100,8 +84,8 @@ module.exports = function (eleventyConfig) {
     }
   );
 
-  eleventyConfig.addPairedShortcode("note", function(content, title) { 
-      return `<div class="note">
+  eleventyConfig.addPairedShortcode("note", function (content, title) {
+    return `<div class="note">
       <div class="note-title">${title}</div>${content}
       </div>`;
   });
