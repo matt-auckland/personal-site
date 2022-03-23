@@ -13,17 +13,31 @@
     <style>
       {{css  | safe}}
     </style>
-    <link rel="preload" href="/css/style.css{{''| cacheBust}}" as="style" />
-    <link rel="stylesheet" href="/css/style.css{{''| cacheBust}}" />
-    <link rel="preload" href="/css/prismjs.css{{''| cacheBust}}" as="style" />
-    <link rel="stylesheet" href="/css/prismjs.css{{''| cacheBust}}" />
+
+    <link rel="preload" href="/css/style.css{{ '' | cacheBust }}" as="style" />
+    <link rel="stylesheet" href="/css/style.css{{ '' | cacheBust }}" />
+    <link
+      rel="preload"
+      href="/css/prismjs.css{{ '' | cacheBust }}"
+      as="style"
+    />
+    <link rel="stylesheet" href="/css/prismjs.css{{ '' | cacheBust }}" />
     {% if pageCss %}
-    <link rel="preload" href="{{ '/css/' + pageCss + '.css' | cacheBust}}" as="style" />
-    <link rel="stylesheet" href="{{ '/css/' + pageCss + '.css' | cacheBust}}" />
+    <link
+      rel="preload"
+      href="{{ '/css/' + pageCss + '.css' | cacheBust }}"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ '/css/' + pageCss + '.css' | cacheBust }}"
+    />
     {% endif %}
   </head>
 
   <body>
+    <script src="/js/theme-select.js"></script>
+
     {% include "header.njk" %} {% if showProgress %}
     <progress class="page-progess" max="100" value="0"></progress>
     {% endif %}
