@@ -12,6 +12,7 @@ function chooseMode(mode) {
   const button = document.querySelector('#theme-toggle')
 
   if (mode === 'dark') {
+    document.querySelector('body').classList.remove('light-theme');
     document.querySelector('body').classList.add('dark-theme');
     button.setAttribute('title', 'Turn darkmode off')
     button.setAttribute('aria-label', 'Turn darkmode off')
@@ -19,6 +20,7 @@ function chooseMode(mode) {
     window.localStorage.setItem('theme', 'dark');
   } else if (mode === 'light') {
     window.localStorage.setItem('theme', 'light');
+    document.querySelector('body').classList.remove('dark-theme');
     document.querySelector('body').classList.add('light-theme');
     button.setAttribute('title', 'Turn darkmode on')
     button.setAttribute('aria-label', 'Turn darkmode on')
