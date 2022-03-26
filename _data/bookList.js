@@ -1,13 +1,49 @@
+const tags = {
+  ebook: 'eBook',
+  audio: 'Audio Book',
+  libraryLoan: 'Library Loan',
+  reading: 'Reading',
+  complete: 'Complete',
+  didntFinish: "Didn't Finish",
+  reread: "Re-read",
+
+}
+
 const bookList = [
+  {
+    title: "The Art of Getting Money",
+    authours: "P. T. Barnum",
+    post: null,
+    rating: 4,
+    tags: [
+      tags.ebook,
+      tags.reading,
+    ],
+    startDate: new Date("2022/3/24"),
+    endDate: null,
+  },
+  {
+    title: "Can't Hurt Me",
+    authours: "David Goggins",
+    post: null,
+    rating: 4,
+    tags: [
+      tags.ebook,
+      tags.libraryLoan,
+      tags.complete
+    ],
+    startDate: new Date("2022/2/10"),
+    endDate: new Date("2022/3/24"),
+  },
   {
     title: "Atomic Habits",
     authours: "James Clear",
     post: null,
     rating: null,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Reading"
+      tags.audio,
+      tags.libraryLoan,
+      tags.reading
     ],
     startDate: new Date("2022/3/10"),
     endDate: null,
@@ -18,9 +54,9 @@ const bookList = [
     post: null,
     rating: 4,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Complete"
+      tags.audio,
+      tags.libraryLoan,
+      tags.complete
     ],
     startDate: new Date("2022/2/8"),
     endDate: new Date("2022/2/28"),
@@ -31,22 +67,22 @@ const bookList = [
     post: "",
     rating: 5,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Complete"
+      tags.audio,
+      tags.libraryLoan,
+      tags.complete
     ],
     startDate: new Date("2022/2/15"),
     endDate: new Date("2022/3/1")
-  }, 
+  },
   {
     title: "Powers and Thrones",
     authours: "Dan Jones",
     post: null,
     rating: null,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Reading"
+      tags.audio,
+      tags.libraryLoan,
+      tags.reading
     ],
     startDate: new Date("2022/3/1"),
     endDate: ""
@@ -57,9 +93,9 @@ const bookList = [
     post: null,
     rating: null,
     tags: [
-      "eBook",
-      "Library Loan",
-      "Didn't Finish"
+      tags.ebook,
+      tags.libraryLoan,
+      tags.didntFinish
     ],
     startDate: new Date("2022/3/1"),
     endDate: ""
@@ -70,9 +106,9 @@ const bookList = [
     post: null,
     rating: 4,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Didn't Finish"
+      tags.audio,
+      tags.libraryLoan,
+      tags.didntFinish
     ],
     startDate: new Date("2022/1/25"),
     endDate: new Date("2022/2/15")
@@ -83,9 +119,9 @@ const bookList = [
     post: null,
     rating: 3,
     tags: [
-      "eBook",
-      "Library Loan",
-      "Complete"
+      tags.ebook,
+      tags.libraryLoan,
+      tags.complete
     ],
     startDate: new Date("2022/2/18"),
     endDate: new Date("2022/2/24")
@@ -96,9 +132,9 @@ const bookList = [
     post: null,
     rating: 3,
     tags: [
-      "eBook",
-      "Library Loan",
-      "Didn't Finish"
+      tags.ebook,
+      tags.libraryLoan,
+      tags.didntFinish
     ],
     startDate: new Date("2022/1/10"),
     endDate: new Date("2022/1/31")
@@ -109,9 +145,9 @@ const bookList = [
     post: null,
     rating: 4,
     tags: [
-      "eBook",
-      "Library Loan",
-      "Complete"
+      tags.ebook,
+      tags.libraryLoan,
+      tags.complete
     ],
     startDate: new Date("2022/1/11"),
     endDate: new Date("2022/1/16")
@@ -122,9 +158,9 @@ const bookList = [
     post: null,
     rating: 2,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Complete"
+      tags.audio,
+      tags.libraryLoan,
+      tags.complete
     ],
     startDate: new Date("2022/1/17"),
     endDate: new Date("2022/1/19")
@@ -135,9 +171,9 @@ const bookList = [
     post: null,
     rating: 5,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Complete"
+      tags.audio,
+      tags.libraryLoan,
+      tags.complete
     ],
     startDate: new Date("2022/1/8"),
     endDate: new Date("2022/1/9")
@@ -148,9 +184,9 @@ const bookList = [
     post: null,
     rating: 5,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Complete"
+      tags.audio,
+      tags.libraryLoan,
+      tags.complete
     ],
     startDate: new Date("2021/12/18"),
     endDate: new Date("2022/1/8")
@@ -161,9 +197,9 @@ const bookList = [
     post: null,
     rating: 4,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Didn't Finish"
+      tags.audio,
+      tags.libraryLoan,
+      tags.didntFinish
     ],
     startDate: new Date("2021/12/18"),
     endDate: new Date("2022/1/6")
@@ -174,9 +210,9 @@ const bookList = [
     post: null,
     rating: 5,
     tags: [
-      "Audio Book",
-      "Library Loan",
-      "Didn't Finish"
+      tags.audio,
+      tags.libraryLoan,
+      tags.didntFinish
     ],
     startDate: new Date("2021/11/19"),
     endDate: new Date("2021/12/10")
@@ -184,14 +220,20 @@ const bookList = [
 ];
 
 const groupedBookList = bookList.reduce((accum, book) => {
-  if(!book.endDate && !book.startDate){
+  if (book.tags.includes(tags.reading)) {
+    book.dateLabel = "Currently Reading";
+    accum["Currently Reading"].push(book);
     return accum;
-  } 
+  }
+
+  if (!book.endDate && !book.startDate) {
+    return accum;
+  }
   // books will be grouped by month
-  let sortingDate = book.endDate|| book.startDate
+  let sortingDate = book.endDate || book.startDate
 
   // Get month year string
-  const dateLabel =  sortingDate.toLocaleDateString('en-NZ', {
+  const dateLabel = sortingDate.toLocaleDateString('en-NZ', {
     month: 'long',
     year: 'numeric',
   });
@@ -202,18 +244,21 @@ const groupedBookList = bookList.reduce((accum, book) => {
 
   accum[dateLabel].push(book);
   return accum;
-}, {});
+}, { "Currently Reading": [] });
 
 // convert to array of arrays
 const groupedBooklistArray = Object.values(groupedBookList);
 
-const sortedBookList = groupedBooklistArray.sort((a,b) => {
+const sortedBookList = groupedBooklistArray.sort((a, b) => {
+  if (a.dateLabel = "Currently Reading") return a;
+  if (b.dateLabel = "Currently Reading") return b;
+
   let aDate = a[0].endDate || a[0].startDate;
   let bDate = b[0].endDate || b[0].startDate;
-  
+
   aDate = new Date(aDate);
   bDate = new Date(bDate);
-  
+
   return (aDate - bDate) * -1;
 })
 

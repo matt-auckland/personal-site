@@ -68,17 +68,23 @@ module.exports = function (eleventyConfig) {
     'booktag',
     (tagArr) => {
       function getTagHtml(tag) {
-        return `<span class="book-tag book-tag-${tag.toLowerCase().replace("'", "").replace(/\ /g, "-")}">${tag.replace(/\-/g, ' ')}</span>`
+        const className = `book-tag-${tag.toLowerCase().replace("'", "").replace(/\ /g, "-")}`
+        const label = tag.replace(/\-/g, ' ')
+        return `<span class="book-tag ${className}">${label}</span>`
       }
 
       if (Array.isArray(tagArr)) {
         let html = '';
         tagArr.forEach((tag) => {
-          html += getTagHtml(tag);
+          if (tag !== 'Reading') {
+            html += getTagHtml(tag);
+          }
         });
         return html;
       } else if (typeof tagArr === 'string') {
-        return getTagHtml(tagArr);
+        if (tag !== 'Reading') {
+          return getTagHtml(tagArr);
+        }
       }
       return '';
     }
