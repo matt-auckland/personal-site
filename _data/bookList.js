@@ -219,6 +219,7 @@ const bookList = [
   }
 ];
 
+// Group books by month (or currently reading)
 const groupedBookList = bookList.reduce((accum, book) => {
   if (book.tags.includes(tags.reading)) {
     book.dateLabel = "Currently Reading";
@@ -246,20 +247,31 @@ const groupedBookList = bookList.reduce((accum, book) => {
   return accum;
 }, { "Currently Reading": [] });
 
+
 // convert to array of arrays
 const groupedBooklistArray = Object.values(groupedBookList);
+// Sort by month
+const sortedBookList = groupedBooklistArray.sort((bookListA, bookListB) => {
+  if (bookListA.dateLabel = "Currently Reading") return bookListA;
+  if (bookListB.dateLabel = "Currently Reading") return bookListB;
 
-const sortedBookList = groupedBooklistArray.sort((a, b) => {
-  if (a.dateLabel = "Currently Reading") return a;
-  if (b.dateLabel = "Currently Reading") return b;
-
-  let aDate = a[0].endDate || a[0].startDate;
-  let bDate = b[0].endDate || b[0].startDate;
+  let aDate = bookListA[0].endDate || bookListA[0].startDate;
+  let bDate = bookListB[0].endDate || bookListB[0].startDate;
 
   aDate = new Date(aDate);
   bDate = new Date(bDate);
 
   return (aDate - bDate) * -1;
-})
+}).map(bookList => bookList.sort((bookA, bookB) => {
+  // Kick books that I didn't finish to the bottom of the list
+  if (bookA.tags.includes(tags.didntFinish)) {
+    if (!bookB.tags.includes(tags.didntFinish)) {
+      return 1;
+    }
+  } else if (bookB.tags.includes(tags.didntFinish)) {
+    return -1
+  }
+  return 0;
+}));
 
 module.exports = sortedBookList
