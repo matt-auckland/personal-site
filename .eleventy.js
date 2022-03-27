@@ -15,7 +15,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter('tagUrl', function (tag) {
-    return `../../tags/${tag.toLowerCase()}`;
+    return `/tags/${tag.toLowerCase()}`;
   });
 
   eleventyConfig.addFilter('formatTag', function (tag) {
@@ -38,6 +38,7 @@ module.exports = function (eleventyConfig) {
         return postA.date - postB.date
       });
   });
+
 
   eleventyConfig.addCollection('recentPosts', function (collectionApi) {
     return collectionApi
