@@ -1,0 +1,22 @@
+---
+layout: base-layout.njk
+
+permalink: /tags/
+---
+
+<h1>Site tags</h1>
+
+<ul>
+  {% set tags = collections %} {% for tag, list in tags | dictsort %} {% if tag
+  != "recentPosts" and tag != "posts" and tag != "all" %}
+  <li>
+    <a href="{{ tag | tagUrl }}"
+      >{{ tag | formatTag }} - {{ list.length }} posts</a
+    >
+  </li>
+  {% endif %} {% endfor %}
+</ul>
+
+<p>
+  Visit <a href="/posts/">here</a> to see a list of all the posts on this site.
+</p>
