@@ -1,6 +1,3 @@
-const fs = require('fs');
-const { exec } = require('child_process');
-
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 // const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const embedEverything = require('eleventy-plugin-embed-everything');
