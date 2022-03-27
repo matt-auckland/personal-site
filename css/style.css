@@ -227,16 +227,12 @@ footer {
   font-size: 16px;
 }
 
-a[target='_blank'] {
-  position: relative;
-}
-
 a[target='_blank']::after {
   content: '↗';
-  position: absolute;
+  position: relative;
   font-size: 10px;
-  right: -8px;
-  top: -5px;
+  right: -2px;
+  top: -9px;
 }
 
 /* Header */

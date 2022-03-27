@@ -24,6 +24,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('formatTag', function (tag) {
     const lowercaseTag = `${tag.toLowerCase()}`;
     if (lowercaseTag === 'ios') return 'iOS';
+    if (['css', 'html'].includes(lowercaseTag)) return lowercaseTag.toUpperCase();
     return lowercaseTag.slice(0, 1).toUpperCase() + lowercaseTag.slice(1);
   });
 
