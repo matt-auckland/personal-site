@@ -23,6 +23,17 @@ const bookList = [
     endDate: null,
   },
   {
+    title: "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
+    authours: "Martin Kleppmann",
+    post: null,
+    rating: 4,
+    tags: [
+      tags.reading,
+    ],
+    startDate: new Date("2022/1/18"),
+    endDate: null,
+  },
+  {
     title: "Can't Hurt Me",
     authours: "David Goggins",
     post: null,
@@ -39,14 +50,14 @@ const bookList = [
     title: "Atomic Habits",
     authours: "James Clear",
     post: null,
-    rating: null,
+    rating: 4,
     tags: [
       tags.audio,
       tags.libraryLoan,
-      tags.reading
+      tags.complete
     ],
     startDate: new Date("2022/3/10"),
-    endDate: null,
+    endDate: new Date("2022/3/28"),
   },
   {
     title: "Sleep",
@@ -202,7 +213,7 @@ const bookList = [
       tags.didntFinish
     ],
     startDate: new Date("2021/12/18"),
-    endDate: new Date("2022/1/6")
+    // endDate: new Date("2022/1/6")
   },
   {
     title: "The Lean Startup",
@@ -215,9 +226,32 @@ const bookList = [
       tags.didntFinish
     ],
     startDate: new Date("2021/11/19"),
-    endDate: new Date("2021/12/10")
+    // endDate: new Date("2021/12/10")
   }
 ];
+
+const bookErrors = [];
+bookList.forEach(book => {
+  const isReading = book.tags.includes(tags.reading);
+  const isComplete = book.tags.includes(tags.complete);
+  const didntFinish = book.tags.includes(tags.didntFinish);
+
+  if (!isReading && !isComplete && !didntFinish) {
+    bookErrors.push(`⚠️  ${book.title} is missing a status tag!`);
+  }
+  if (book.endDate && (!isComplete && !didntFinish)) {
+    bookErrors.push(`⚠️  ${book.title} is has an end date but is not marked as complete/didn't finish!`);
+  }
+  if (!book.rating && isComplete) {
+    bookErrors.push(`⚠️  ${book.title} is complete but doesn't have a rating!`);
+  }
+});
+
+if (bookErrors.length) {
+  console.log(`\n=== Validating BookList ===\n`);
+  bookErrors.forEach(err => console.log(err));
+  console.log('');
+}
 
 // Group books by month (or currently reading)
 const groupedBookList = bookList.reduce((accum, book) => {
@@ -273,5 +307,59 @@ const sortedBookList = groupedBooklistArray.sort((bookListA, bookListB) => {
   }
   return 0;
 }));
+
+let yearlyReadList = sortedBookList.reduce((accum, month) => {
+  const matches = month[0].dateLabel.match(/\d\d\d\d/g);
+  const calendarYear = matches && matches[0];
+
+  if (calendarYear) {
+    let entry = accum.find(year => year.label === calendarYear)
+
+    if (!entry) {
+      entry = {
+        label: calendarYear,
+        total: 0,
+        categories: {
+          'eBooks': 0,
+          'Physical Books': 0
+          , 'Audiobooks': 0
+        },
+      };
+      accum.push(entry);
+    }
+
+    month.forEach(book => {
+      if (book.tags.includes(tags.complete)) {
+        entry.total++;
+
+        if (book.tags.includes(tags.audio)) {
+          entry.categories.Audiobooks++;
+        } else if (book.tags.includes(tags.ebook)) {
+          entry.categories.eBooks++;
+        } else {
+          entry.categories['Physical Books']++;
+        }
+      }
+    });
+  }
+  return accum
+}, []);
+
+console.log(yearlyReadList);
+//   {
+//     label: 2021,
+//     total: 12,
+//     categories: [
+//       {
+//         type: 'eBook',
+//         count: 10
+//       },
+//       {
+//         type: 'AudioBook',
+//         count: 2
+//       }
+//     ]
+//   }
+// ];
 
 module.exports = sortedBookList
