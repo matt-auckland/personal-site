@@ -70,7 +70,6 @@ async function prettifyFiles(fileMap) {
 
 
 async function validateHTMLFiles(fileList) {
-  console.log(fileList)
   fileList.forEach(async filePath => {
     if (filePath.includes('.html')) {
       const options = {
@@ -83,8 +82,8 @@ async function validateHTMLFiles(fileList) {
         const result = await htmlValidator(options)
         const pass = result.includes("The document validates according to the specified schema(s).")
 
-        console.log(filePath + (pass ? ' ✅' : ' ❌'))
         if (!pass) {
+          console.log(filePath + ' ❌');
           console.log(result)
         }
       } catch (error) {
