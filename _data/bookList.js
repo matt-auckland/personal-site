@@ -345,21 +345,4 @@ let yearlyReadList = sortedBookList.reduce((accum, month) => {
   return accum
 }, []);
 
-console.log(yearlyReadList);
-//   {
-//     label: 2021,
-//     total: 12,
-//     categories: [
-//       {
-//         type: 'eBook',
-//         count: 10
-//       },
-//       {
-//         type: 'AudioBook',
-//         count: 2
-//       }
-//     ]
-//   }
-// ];
-
-module.exports = sortedBookList
+module.exports = { sortedBookList, yearlyReadList };
