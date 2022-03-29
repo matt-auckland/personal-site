@@ -12,12 +12,15 @@ showProgress: true
       <time
         class="postlist-date"
         datetime="{{
-          page.date.toLocaleDateString('en-NZ', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })
+          page.date
+            .toLocaleDateString('en-NZ', {
+              year: 'numeric',
+              month: 'numeric',
+              day: '2-digit'
+            })
+            .split('/')
+            .reverse()
+            .join('-')
         }}"
       >
         {{
@@ -31,16 +34,20 @@ showProgress: true
       </time>
     </span>
     {% if updated %}
-    <span>- Updated:
+    <span
+      >- Updated:
       <time
         class="postlist-date"
         datetime="{{
-          updated.toLocaleDateString('en-NZ', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })
+          updated
+            .toLocaleDateString('en-NZ', {
+              year: 'numeric',
+              month: 'numeric',
+              day: '2-digit'
+            })
+            .split('/')
+            .reverse()
+            .join('-')
         }}"
       >
         {{
@@ -55,15 +62,13 @@ showProgress: true
     </span>
     {% endif %}
   </div>
-  {% endif %}
-
-  {% if tags %}
+  {% endif %} {% if tags %}
   <div class="post-tags">
     {% for tag in tags -%}
     <a href="{{ tag | tagUrl | url }}">#{{ tag | formatTag }}</a>
     {%- if not loop.last %}, {% endif %} {%- endfor %}
   </div>
   {% endif %}
-  <hr>
+  <hr />
   <div class="post-content">{{ content | safe }}</div>
 </article>

@@ -115,6 +115,10 @@ ul ul {
   margin: 0 1em;
 }
 
+.post-content table code {
+  white-space: nowrap;
+}
+
 /* Pages */
 main h1 {
   margin-top: 1em;

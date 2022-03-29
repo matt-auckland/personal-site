@@ -96,5 +96,5 @@ module.exports = function (eleventyConfig) {
   });
 
 
-  eleventyConfig.on('afterBuild', formatFiles);
+  eleventyConfig.on('eleventy.after', formatFiles);
 };

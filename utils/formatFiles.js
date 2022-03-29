@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const fsUtils = require('nodejs-fs-utils');
 const { resolve } = require('path');
+const htmlValidator = require('html-validator')
 
 // Based on https://gist.github.com/GuillermoPena/9233069#gistcomment-3149231
 function getFileHash(filename) {
@@ -67,11 +68,42 @@ async function prettifyFiles(fileMap) {
   }
 }
 
-async function formatFiles() {
-  let files = getFileList();
+
+async function validateHTMLFiles(fileList) {
+  console.log(fileList)
+  fileList.forEach(async filePath => {
+    if (filePath.includes('.html')) {
+      const options = {
+        format: 'text',
+        data: fs.readFileSync(filePath, 'utf8')
+      }
+
+
+      try {
+        const result = await htmlValidator(options)
+        const pass = result.includes("The document validates according to the specified schema(s).")
+
+        console.log(filePath + (pass ? ' ✅' : ' ❌'))
+        if (!pass) {
+          console.log(result)
+        }
+      } catch (error) {
+        console.log(filePath)
+        console.error(error)
+      }
+    }
+  })
+
+}
+
+async function formatFiles({ runMode }) {
+  let files = getFileList().sort();
   let fileMap = await mapFilePathsToHashes(files);
 
-  await prettifyFiles(fileMap);
+  await validateHTMLFiles(files);
+  if (runMode === 'build') {
+    await prettifyFiles(fileMap);
+  }
 
   fs.writeFileSync('./fileHashes.json', JSON.stringify(fileMap));
 }
