@@ -3,30 +3,50 @@
     "name": "UoA Karate",
     "description": "A Vue based website for the University of Auckland Karate club.",
     "url": "https://uoa-karate.club",
-    "tags": ["Vue"]
+    "tags": [
+      "Vue"
+    ]
   },
   {
     "name": "UoA Karate Wiki",
     "description": "A Vuepress based wiki for the University of Auckland Karate club.",
     "url": "https://uoa-karate.club",
-    "tags": ["Vue", "Vuepress"]
+    "tags": [
+      "Vue",
+      "Vuepress"
+    ]
   },
   {
     "name": "Kata Counter",
     "description": "Android app for tracking your karate kata practice and goals.",
     "url": "https://github.com/matt-auckland/kata-counter",
-    "tags": ["Vue", "Cordova"]
+    "tags": [
+      "Vue",
+      "Cordova"
+    ]
   },
   {
     "name": "Hex-Words",
     "description": "Spice up your web design with colours that are WORDS! A site that lets you find hexcodes that look like English words.",
     "url": "https://github.com/matt-auckland/hex-words",
-    "tags": ["Svelte"]
+    "tags": [
+      "Svelte"
+    ]
   },
   {
     "name": "This Blog",
     "description": "Nothing fancy here, just static site built with Eleventy.",
     "url": "https://github.com/matt-auckland/personal-site",
-    "tags": ["Eleventy"]
+    "tags": [
+      "Eleventy"
+    ]
+  },
+  {
+    "name": "eleventy-plugin-html-validate",
+    "description": "A simple plugin that runs on the eleventy.after event and validates all the HTML files that were built.",
+    "url": "https://github.com/matt-auckland/eleventy-plugin-html-validate",
+    "tags": [
+      "Eleventy"
+    ]
   }
 ]
