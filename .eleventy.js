@@ -3,6 +3,7 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const embedEverything = require('eleventy-plugin-embed-everything');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const formatFiles = require('./utils/formatFiles');
+const eleventyPluginHtmlValidate = require('eleventy-plugin-html-validate');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -97,4 +98,5 @@ module.exports = function (eleventyConfig) {
 
 
   eleventyConfig.on('eleventy.after', formatFiles);
+  eleventyConfig.addPlugin(eleventyPluginHtmlValidate);
 };

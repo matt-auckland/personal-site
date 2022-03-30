@@ -69,31 +69,6 @@ async function prettifyFiles(fileMap) {
 }
 
 
-async function validateHTMLFiles(fileList) {
-  fileList.forEach(async filePath => {
-    if (filePath.includes('.html')) {
-      const options = {
-        format: 'text',
-        data: fs.readFileSync(filePath, 'utf8')
-      }
-
-
-      try {
-        const result = await htmlValidator(options)
-        const pass = result.includes("The document validates according to the specified schema(s).")
-
-        if (!pass) {
-          console.log(filePath + ' ❌');
-          console.log(result)
-        }
-      } catch (error) {
-        console.log(filePath)
-        console.error(error)
-      }
-    }
-  })
-
-}
 
 async function formatFiles({ runMode }) {
   let files = getFileList().sort();
