@@ -3,7 +3,6 @@ const crypto = require('crypto');
 const fs = require('fs');
 const fsUtils = require('nodejs-fs-utils');
 const { resolve } = require('path');
-const htmlValidator = require('html-validator')
 
 // Based on https://gist.github.com/GuillermoPena/9233069#gistcomment-3149231
 function getFileHash(filename) {
@@ -74,7 +73,6 @@ async function formatFiles({ runMode }) {
   let files = getFileList().sort();
   let fileMap = await mapFilePathsToHashes(files);
 
-  await validateHTMLFiles(files);
   if (runMode === 'build') {
     await prettifyFiles(fileMap);
   }
