@@ -97,6 +97,6 @@ module.exports = function (eleventyConfig) {
   });
 
 
-  eleventyConfig.on('eleventy.after', formatFiles);
+  eleventyConfig.addPlugin(formatFiles);
   eleventyConfig.addPlugin(eleventyPluginHtmlValidate);
 };
