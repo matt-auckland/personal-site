@@ -30,7 +30,6 @@ module.exports = function (eleventyConfig) {
     return arr.slice(0, count);
   });
 
-
   eleventyConfig.addCollection('posts', function (collectionApi) {
     return collectionApi
       .getAll()
@@ -53,6 +52,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('css/*');
   eleventyConfig.addWatchTarget('js/*');
   eleventyConfig.addWatchTarget('assets/*');
+  eleventyConfig.addWatchTarget('utils/*');
 
   eleventyConfig.addPassthroughCopy('assets');
   eleventyConfig.addPassthroughCopy('css');
