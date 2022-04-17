@@ -20,16 +20,28 @@ title: What have I been reading?
     <summary>
       What kind of books did I finish each for year I've been tracking?
     </summary>
-    {% for year in bookList.yearlyReadList %} {% if year.total > 0 %}
-    <details>
-      <summary>{{ year.label }} - {{ year.total }} total books</summary>
-      <ul>
-        {% for category, count in year.categories %}
-        <li>{{ count }} {{ category }}</li>
-        {% endfor %}
-      </ul>
-    </details>
-    {% endif %} {% endfor %}
+    <table>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Physical Books</th>
+          <th>eBooks</th>
+          <th>Audio Books</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for year in bookList.yearlyReadList %} {% if year.total > 0 %}
+        <tr>
+          <td>{{ year.label }}</td>
+          <td>{{ year.categories['Physical Books'] }}</td>
+          <td>{{ year.categories.eBooks }}</td>
+          <td>{{ year.categories.Audiobooks }}</td>
+          <td>{{ year.total }}</td>
+        </tr>
+        {% endif %} {% endfor %}
+      </tbody>
+    </table>
   </details>
 </section>
 <section class="book-list">
