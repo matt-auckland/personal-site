@@ -238,30 +238,6 @@ const bookList = [
     startDate: new Date("2021/11/19"),
     // endDate: new Date("2021/12/10")
   },
-  {
-    title: "Fight Like A Physicist The Incredible Science Behind Martial Arts",
-    authours: "Jason Thalken",
-    post: null,
-    rating: 3,
-    tags: [
-      tags.libraryLoan,
-      tags.complete
-    ],
-    startDate: new Date("2020/11/10"),
-    endDate: new Date("2020/12/01")
-  },
-  {
-    title: "The Little Black Book of Violence : What Every Young Man Needs To Know About Fighting",
-    authours: "Lawrence A. Kane and Kris Wilder",
-    post: null,
-    rating: 4,
-    tags: [
-      tags.libraryLoan,
-      tags.complete
-    ],
-    startDate: new Date("2020/09/08"),
-    endDate: new Date("2020/09/29"),
-  },
 ];
 
 const bookErrors = [];
