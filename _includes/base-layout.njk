@@ -4,10 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
+      property="og:title"
+      content="{{ title if title else global.blogTitle }}"
+    />
+    <title>{{ title if title else global.blogTitle }}</title>
+
+    <meta property="og:site_name" content="Mathew-Paul.nz" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mathew-paul.nz{{ page.url }}" />
+
+    <meta
       name="description"
       content="{{ description if description else global.description }}"
     />
-    <title>{{ title if title else global.blogTitle }}</title>
+    <meta
+      property="og:description"
+      content="{{ description if description else global.description }}"
+    />
 
     {%- set css -%} {% include "css/critical.css" %} {%- endset %}
     <style>
