@@ -50,9 +50,9 @@
   </head>
 
   <body>
+    {% include "header.njk" %}
     <script src="/js/theme-select.js"></script>
-
-    {% include "header.njk" %} {% if showProgress %}
+    {% if showProgress %}
     <progress class="page-progess" max="100" value="0"></progress>
     {% endif %}
     <main {% if mainClass %} class="{{ mainClass }}" {% endif %}>
