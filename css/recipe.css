@@ -1,0 +1,32 @@
+.recipe-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.recipe-page > h1 {
+  grid-column: 1/-1;
+}
+
+.recipe-page .tags {
+  grid-column: 1/-1;
+}
+
+.recipe-ingredients {
+}
+.recipe-cookware {
+}
+
+.recipe-instructions {
+  grid-column: 1/-1;
+}
+
+.recipe--cookware,
+.recipe--ingredient {
+  /* border-bottom: 1px solid white; */
+}
+
+.recipe--cookware {
+}
+
+.recipe--ingredient {
+}

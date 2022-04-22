@@ -1,0 +1,55 @@
+---
+layout: base-layout.njk
+title: /recipes
+permalink: /recipes/
+---
+
+<h1>Recipes</h1>
+
+<p>
+  I've been cooking things with a lot more variety lately so I figured I'd start
+  adding some recipes here for fun 🧑‍🍳
+</p>
+
+<ul class="postlist">
+  {% for recipe in collections.recipes %}
+  <li
+    class="postlist-item{% if recipe.url == url %} postlist-item-active{% endif %}"
+  >
+    <a href="{{ recipe.url | url }}" class="postlist-link">
+      {% if recipe.data.title %}
+      {{ recipe.data.title }}
+      {% else %}
+      <code>{{ recipe.url }}</code>
+      {% endif %}
+    </a>
+    <time
+      class="postlist-date"
+      datetime="{{
+        recipe.date
+          .toLocaleDateString('en-NZ', {
+            year: 'numeric',
+            month: 'numeric',
+            day: '2-digit'
+          })
+          .split('/')
+          .reverse()
+          .join('-')
+      }}"
+    >
+      {{
+        recipe.date.toLocaleDateString('en-NZ', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        })
+      }}
+    </time>
+    {% for tag in recipe.data.recipeTags %} {%- if tag != "posts" -%} {% set
+    tagUrl %}/tags/{{ tag }}/{% endset %}
+    <!-- <a href="{{ tagUrl | url }}" class="post-tag">{{ tag | formatTag }}</a> -->
+    <a href="#" class="post-tag">{{ tag | formatTag }}</a>
+    {%- endif -%} {%- if not loop.last %}, {% endif %} {% endfor %}
+  </li>
+  {% endfor %}
+</ul>

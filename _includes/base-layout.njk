@@ -54,7 +54,7 @@
     {% include "header.njk" %} {% if showProgress %}
     <progress class="page-progess" max="100" value="0"></progress>
     {% endif %}
-    <main>
+    <main {% if mainClass %} class="{{ mainClass }}" {% endif %}>
       {{ content | safe }}
     </main>
 

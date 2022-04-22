@@ -4,6 +4,8 @@ const embedEverything = require('eleventy-plugin-embed-everything');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const formatFiles = require('./utils/formatFiles');
 const eleventyPluginHtmlValidate = require('eleventy-plugin-html-validate');
+const eleventyPluginCookLang = require('eleventy-plugin-cooklang')
+
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -15,8 +17,9 @@ module.exports = function (eleventyConfig) {
     return `${url}?v=${Date.now()}`;
   });
 
-  eleventyConfig.addFilter('tagUrl', function (tag) {
-    return `/tags/${tag.toLowerCase()}`;
+  eleventyConfig.addFilter('tagUrl', function (tag, type = "post") {
+    if (type === 'post') return `/tags/${tag.toLowerCase()}`;
+    if (type === 'recipe') return `/recipe-tags/${tag.toLowerCase()}`;
   });
 
   eleventyConfig.addFilter('formatTag', function (tag) {
@@ -30,6 +33,9 @@ module.exports = function (eleventyConfig) {
     return arr.slice(0, count);
   });
 
+
+  // COLLECTIONS ====
+
   eleventyConfig.addCollection('posts', function (collectionApi) {
     return collectionApi
       .getAll()
@@ -39,6 +45,14 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  eleventyConfig.addCollection('recipes', function (collectionApi) {
+    return collectionApi
+      .getAll()
+      .filter((i) => i.data.layout == 'pages/recipe.njk')
+      .sort((recipeA, recipeB) => {
+        return recipeA.date - recipeB.date
+      });
+  });
 
   eleventyConfig.addCollection('recentPosts', function (collectionApi) {
     return collectionApi
@@ -49,14 +63,21 @@ module.exports = function (eleventyConfig) {
       }).slice(0, 10);
   });
 
+  // WATCHES ====
+
   eleventyConfig.addWatchTarget('css/*');
   eleventyConfig.addWatchTarget('js/*');
   eleventyConfig.addWatchTarget('assets/*');
   eleventyConfig.addWatchTarget('utils/*');
 
+  // FILE COPIES ====
+
   eleventyConfig.addPassthroughCopy('assets');
   eleventyConfig.addPassthroughCopy('css');
   eleventyConfig.addPassthroughCopy('js');
+
+
+  // SHORTCODES ====
 
   eleventyConfig.addShortcode(
     'extLink',
@@ -97,6 +118,9 @@ module.exports = function (eleventyConfig) {
   });
 
 
+  // PLUGINS ====
+
   eleventyConfig.addPlugin(formatFiles);
   eleventyConfig.addPlugin(eleventyPluginHtmlValidate);
+  eleventyConfig.addPlugin(eleventyPluginCookLang);
 };
