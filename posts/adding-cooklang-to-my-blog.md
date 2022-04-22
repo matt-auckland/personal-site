@@ -83,5 +83,5 @@ eleventyConfig.addCollection('recipes', function (collectionApi) {
 - {% extLink "https://cooklang.org/" "Cooklang official site" %}
 - My {% extLink "https://www.npmjs.com/package/eleventy-plugin-cooklang" "eleventy plugin for cooklang" %}, `eleventy-plugin-cooklang`
 - {% extLink "https://github.com/cooklang/cooklang-ts" "cooklang/cooklang-ts" %} package
-- My [Anzac biscuit recipe]("/recipes/anzac-biscuits/")
+- My [Anzac biscuit recipe](/recipes/anzac-biscuits/)
 - {% extLink "https://en.wikipedia.org/wiki/Anzac_biscuit" "Anzac Biscuits" %} on Wikipedia
