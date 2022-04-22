@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-plugin-rss": "^1.0.9",
-    "eleventy-plugin-cooklang": "^0.0.2",
+    "eleventy-plugin-cooklang": "^0.0.5",
     "eleventy-plugin-embed-everything": "^1.9.2",
     "eleventy-plugin-html-validate": "^0.0.5"
   }

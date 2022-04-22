@@ -122,5 +122,5 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(formatFiles);
   eleventyConfig.addPlugin(eleventyPluginHtmlValidate);
-  eleventyConfig.addPlugin(eleventyPluginCookLang);
+  eleventyConfig.addPlugin(eleventyPluginCookLang, { limitIngredientDecimals: 2 });
 };
