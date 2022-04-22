@@ -2,6 +2,8 @@
 title: Adding Cooklang Support to my Eleventy Blog
 date:
 
+description: How I added cooklang to my blog and the 11ty extension I created in the process
+
 tags:
   - Cooklang
   - Eleventy
