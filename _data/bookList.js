@@ -10,6 +10,32 @@ const tags = {
 
 const bookList = [
   {
+    title: "The Storm Before The Storm",
+    authours: "Mike Duncan",
+    post: null,
+    rating: 4,
+    tags: [
+      tags.reading,
+      tags.audio,
+      tags.libraryLoan,
+    ],
+    startDate: new Date("2022/4/22"),
+    endDate: null
+  },
+  {
+    title: "Never Split The Difference",
+    authours: "Chris Voss",
+    post: null,
+    rating: 5,
+    tags: [
+      tags.audio,
+      tags.reading,
+      tags.libraryLoan,
+    ],
+    startDate: new Date("2022/4/29"),
+    endDate: null,
+  },
+  {
     title: "Leadership Strategy and Tactics",
     authours: "Jocko Willink",
     post: null,
