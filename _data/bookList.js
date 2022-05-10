@@ -15,12 +15,12 @@ const bookList = [
     post: null,
     rating: 4,
     tags: [
-      tags.reading,
+      tags.complete,
       tags.audio,
       tags.libraryLoan,
     ],
     startDate: new Date("2022/4/22"),
-    endDate: null
+    endDate: new Date("2022/5/10")
   },
   {
     title: "Never Split The Difference",
