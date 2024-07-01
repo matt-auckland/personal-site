@@ -1,0 +1,40 @@
+---
+permalink: /hobbies/40k/tyranid-bases/
+title: Tyranid Bases - Warhammer 40k
+tags:
+  - 40k
+---
+
+<h2>Tyranid Base Sizes</h2>
+<p>
+  I haven't personally found a nice easy to understand list of Tyranid units and
+  their current base sizes, so here one is.
+</p>
+<p><code>Last Updated 01/07/2024</code></p>
+
+<table>
+  <thead>
+    <th>Unit</th>
+    <th>Image</th>
+    <th>Base Size(s)</th>
+    <th>Notes</th>
+  </thead>
+  <tbody>
+    {% for unit in tyranidBases %}
+    <tr>
+      <td>
+        <img height="200" width="200" loading="lazy" src="{{ unit.imgSrc }}" />
+      </td>
+      <td>
+        {{ unit.name }}
+      </td>
+      <td>
+        {{ unit.baseSizes }}
+      </td>
+      <td>
+        {{ unit.notes }}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

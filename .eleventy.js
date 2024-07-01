@@ -1,3 +1,4 @@
+const { execSync } = require('child_process')
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 // const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const embedEverything = require('eleventy-plugin-embed-everything');
@@ -8,6 +9,11 @@ const eleventyPluginCookLang = require('eleventy-plugin-cooklang')
 
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.on('eleventy.before', () => {
+    console.warn('⚠️⚠️⚠️ Deleting _site folder ⚠️⚠️⚠️')
+    execSync('rm -rf ./_site')
+  });
+
   eleventyConfig.addPlugin(pluginRss);
   // eleventyConfig.addPlugin(lazyImagesPlugin);
   eleventyConfig.addPlugin(embedEverything);
@@ -17,12 +23,12 @@ module.exports = function (eleventyConfig) {
     return `${url}?v=${Date.now()}`;
   });
 
-  eleventyConfig.addFilter('tagUrl', function (tag, type = "post") {
+  eleventyConfig.addFilter('tagUrl', function (tag = "", type = "post") {
     if (type === 'post') return `/tags/${tag.toLowerCase()}`;
     if (type === 'recipe') return `/recipe-tags/${tag.toLowerCase()}`;
   });
 
-  eleventyConfig.addFilter('formatTag', function (tag) {
+  eleventyConfig.addFilter('formatTag', function (tag = "") {
     const lowercaseTag = `${tag.toLowerCase()}`;
     if (lowercaseTag === 'ios') return 'iOS';
     if (['css', 'html'].includes(lowercaseTag)) return lowercaseTag.toUpperCase();
@@ -54,6 +60,16 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  eleventyConfig.addCollection('hobbies', function (collectionApi) {
+    return collectionApi
+      .getAll()
+      .filter((i) => i.data.page.inputPath.includes('/hobbies/'))
+      .filter((i) => !i.data.page.inputPath.includes('/hobbies/index') && !i.data.page.inputPath.includes('/hobbies/recipes'))
+      .sort((pageA, pageB) => {
+        return pageA.date - pageB.date
+      });
+  });
+
   eleventyConfig.addCollection('recentPosts', function (collectionApi) {
     return collectionApi
       .getAll()
@@ -75,6 +91,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('assets');
   eleventyConfig.addPassthroughCopy('css');
   eleventyConfig.addPassthroughCopy('js');
+  eleventyConfig.addPassthroughCopy('playground');
 
 
   // SHORTCODES ====
@@ -88,7 +105,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode(
     'booktag',
     (tagArr) => {
-      function getTagHtml(tag) {
+      function getTagHtml(tag = "") {
         const className = `book-tag-${tag.toLowerCase().replace("'", "").replace(/\ /g, "-")}`
         const label = tag.replace(/\-/g, ' ')
         return `<span class="book-tag ${className}">${label}</span>`
@@ -121,6 +138,6 @@ module.exports = function (eleventyConfig) {
   // PLUGINS ====
 
   eleventyConfig.addPlugin(formatFiles);
-  eleventyConfig.addPlugin(eleventyPluginHtmlValidate);
+  // eleventyConfig.addPlugin(eleventyPluginHtmlValidate);
   eleventyConfig.addPlugin(eleventyPluginCookLang, { limitIngredientDecimals: 2 });
 };

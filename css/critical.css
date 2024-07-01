@@ -77,6 +77,11 @@ figure {
   max-width: 600px;
 }
 
+figure img {
+  border: 1px solid black;
+  filter: drop-shadow(2px 2px 2px #000);
+}
+
 figcaption {
   text-align: center;
 }
